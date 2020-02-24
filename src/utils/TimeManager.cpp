@@ -1,5 +1,4 @@
-#include "TimeManager.hh"
-#include <iostream>
+#include "include/TimeManager.hh"
 #include <chrono>
 
 TimeManager TimeManager::_instance = TimeManager();

@@ -1,8 +1,8 @@
-#include "Scene.hh"
-#include "TimeManager.hh"
-#include "json.hpp"
+#include "include/Scene.hh"
+#include "include/TimeManager.hh"
+#include "include/json.hpp"
 #include <iostream>
-#include "MonsterFactory.hh"
+#include "include/MonsterFactory.hh"
 
 using json = nlohmann::json;
 
@@ -54,7 +54,7 @@ std::string Scene::Serialize()
 {
     json j;
     
-    for(AbstractEntity *entity: this->_entities) {
+    for(AbstractEntity *entity: this->_entities)
         j.push_back(json::parse(entity->Serialize()));
 
     return j.dump();

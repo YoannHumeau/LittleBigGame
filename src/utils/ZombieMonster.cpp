@@ -1,7 +1,6 @@
-#include "ZombieMonster.hh"
-#include "TimeManager.hh"
-#include <iostream>
-#include "json.hpp"
+#include "include/ZombieMonster.hh"
+#include "include/TimeManager.hh"
+#include "include/json.hpp"
 
 using json = nlohmann::json;
 

@@ -2,6 +2,7 @@
 #define ABSTRACTENTITY_HH
 
 #include "ISerializable.hh"
+#include <iostream>
 
 class AbstractEntity: public ISerializable
 {

@@ -1,8 +1,7 @@
-#include "MonsterFactory.hh"
-#include "ZombieMonster.hh"
-#include "SprinterMonster.hh"
-#include "json.hpp"
-#include <iostream>
+#include "include/MonsterFactory.hh"
+#include "include/SprinterMonster.hh"
+#include "include/ZombieMonster.hh"
+#include "include/json.hpp"
 
 using json = nlohmann::json;
 

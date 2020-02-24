@@ -5,7 +5,7 @@ OBJ1		=	$(SRC1:%.cpp=%.o)
 NAME1		=	game
 
 CXX			=	g++
-CXXFLAGS	=	-Wall -pedantic -Wextra -Werror -std=c++17 -g
+CXXFLAGS	=	-I. -Wall -pedantic -Wextra -Werror -std=c++17 -g
 LIBFLAGS	=	-lsfml-system -lsfml-graphics -lsfml-window -lsfml-audio
 
 RM			=	rm -f

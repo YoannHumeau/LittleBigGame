@@ -1,7 +1,7 @@
-#include "SprinterMonster.hh"
-#include "TimeManager.hh"
+#include "include/SprinterMonster.hh"
+#include "include/TimeManager.hh"
 #include <iostream>
-#include "json.hpp"
+#include "include/json.hpp"
 
 using json = nlohmann::json;
 
