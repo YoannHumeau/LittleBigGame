@@ -1,7 +1,6 @@
 #include "include/Scene.hh"
 #include "include/TimeManager.hh"
 #include "include/json.hpp"
-#include <iostream>
 #include "include/MonsterFactory.hh"
 
 using json = nlohmann::json;

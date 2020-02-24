@@ -29,6 +29,9 @@ class Character: public AbstractEntity, public IObservable
         void AddObserver(IObserver*) override;
         void RemoveObserver(IObserver*) override;
         
+        virtual void Update(void) override;
+        virtual void Draw(void) override;
+        
         void ToString(void);
 };
 

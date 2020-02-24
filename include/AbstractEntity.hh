@@ -8,10 +8,10 @@ class AbstractEntity: public ISerializable
 {
     public:
         AbstractEntity();
-        virtual ~AbstractEntity() = 0;
+        virtual ~AbstractEntity() {};
 
-        virtual void Draw(void);
-        virtual void Update(void);
+        virtual void Draw(void) = 0;
+        virtual void Update(void) = 0;
 };
 
 #endif

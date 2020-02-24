@@ -60,6 +60,17 @@ void Character::RemoveObserver(IObserver *observer)
     this->_observers.remove(observer);
 }
 
+void Character::Update()
+{
+    std::cout << "Update" << std::endl;
+}
+
+void Character::Draw()
+{
+    std::cout << "Draw" << std::endl;
+}
+
+
 void Character::ToString()
 {
     std::cout << this->GetClassName() << " avec " << this->GetLife() << " HP." << std::endl;

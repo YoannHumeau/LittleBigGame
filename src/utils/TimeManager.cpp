@@ -27,16 +27,15 @@ void TimeManager::Update(void)
 
 // Update2 - Update 1
 unsigned int TimeManager::GetElapsedTime(void) const {
-    // std::chrono::system_clock::time_point begin = std::chrono::system_clock::from_time_t(0);
-
-    // std::cout << this->_chronos.size() << std::endl;
-    // if (begin != this->_chronos.at(this->_chronos.size()-2))
-        return std::chrono::duration_cast<std::chrono::milliseconds>(this->_chronos.at(this->_chronos.size()-1) - this->_chronos.at(this->_chronos.size()-2)).count();
-    // return 0;
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
+        this->_chronos.at(this->_chronos.size()-1) - this->_chronos.at(this->_chronos.size()-2)
+    ).count();
 }
 
 // Update - Start
 unsigned int TimeManager::GetStartedTime(void) const 
 {
-    return std::chrono::duration_cast<std::chrono::milliseconds>(this->_chronos.at(this->_chronos.size()-1) - this->_chronos.at(0)).count();
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
+        this->_chronos.at(this->_chronos.size()-1) - this->_chronos.at(0)
+    ).count();
 }

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "include/ZombieMonster.hh"
 
 int main()
