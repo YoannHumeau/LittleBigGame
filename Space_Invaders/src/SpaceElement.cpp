@@ -28,8 +28,6 @@ float SpaceElement::getRadius() const {
 void SpaceElement::crashTest(SpaceElement& other) {
     auto distance = position.calculateDistance(other.position);
     if (distance < getRadius() + other.getRadius()) {
-        // Collision les objets deviennent rouge
-        sprite.setColor(sf::Color::Red);
-        other.sprite.setColor(sf::Color::Red);
+        crashReaction();
     }
 }

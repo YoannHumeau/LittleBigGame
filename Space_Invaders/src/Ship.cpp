@@ -12,21 +12,41 @@ void Ship::actualiseState() {
 }
 
 void Ship::update(float time) {
-    if (beingAcceleratedFront) {
-        speed += {0.f, -ACCELERATION * time};
-    }
-    if (beingAcceleratedBack) {
-        speed += {0.f, ACCELERATION * time};
-    }
-    if (beingAcceleratedLeft) {
-        speed += {-ACCELERATION * time, 0.f};
-    }
-    if (beingAcceleratedRight) {
-        speed += {ACCELERATION * time, 0.f};
+    if (!destruct) {
+        if (beingAcceleratedFront) {
+            speed += {0.f, -ACCELERATION * time};
+        }
+        if (beingAcceleratedBack) {
+            speed += {0.f, ACCELERATION * time};
+        }
+        if (beingAcceleratedLeft) {
+            speed += {-ACCELERATION * time, 0.f};
+        }
+        if (beingAcceleratedRight) {
+            speed += {ACCELERATION * time, 0.f};
+        }
+        speed -= speed * COEF_FROTTEMENTS * time;
     }
 
-    speed -= speed * COEF_FROTTEMENTS * time;
     SpaceElement::update(time);
+
+    explosion.update(time);
 }
 
-Ship::~Ship() {}
+void Ship::crashReaction() {
+    if (!destruct) {
+        destruct = true;
+        explosion.start(position);
+    }
+}
+
+void Ship::display(sf::RenderWindow& window) const {
+    if (!destruct) {
+        SpaceElement::display(window);
+    } else {
+        explosion.display(window);
+    }
+}
+
+
+

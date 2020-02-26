@@ -32,8 +32,10 @@ int main()
         }
 
         for (auto* element : elements) {
-            if (element != &ship) {
-                element->crashTest(ship);
+            for (auto* element2 : elements) {
+                if (element != element2) {
+                    element->crashTest(*element2);
+                }
             }
         }
 
