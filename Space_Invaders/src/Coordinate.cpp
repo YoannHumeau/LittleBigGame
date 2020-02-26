@@ -34,9 +34,9 @@ void Coordinate::operator+= (Vecteur const& vecteur)
 
 void Coordinate::recalculate() {
     // Penser à ajouter à x la moitier de la largeur du sprite
-    auto halfSpriteX = sprite.getLocalBounds().width / 2.f;
+    //auto halfSpriteX = sprite.getLocalBounds().width / 2.f;
     // Penser à ajouter à y la moitier de la hauteur du sprite
-    auto halfSpriteY = sprite.getLocalBounds().height / 2.f;
+    //auto halfSpriteY = sprite.getLocalBounds().height / 2.f;
 
     while (x > widthSpace) {x = widthSpace;}
     while (x < 0) {x = 0;}
