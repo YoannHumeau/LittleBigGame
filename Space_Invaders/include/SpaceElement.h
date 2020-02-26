@@ -8,12 +8,16 @@
 class SpaceElement
 {
     public:
-        SpaceElement(std::string_view const& pathImage);
+        explicit SpaceElement(std::string_view const& pathImage);
+        SpaceElement(SpaceElement const& other) = delete;
+        void operator=(SpaceElement const& other) = delete;
 
         virtual void update(float time);
-        void display(sf::RenderWindow& window) const;
+        virtual void display(sf::RenderWindow& window) const;
+
         float getRadius() const;
         void crashTest(SpaceElement& other);
+        virtual void crashReaction() = 0;
 
     protected:
         sf::Texture texture{};
