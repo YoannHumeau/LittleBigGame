@@ -2,51 +2,41 @@
 
 #include <iostream>
 
-Ship::Ship() : SpaceElement("ressources/ship.png") {}
+Ship::Ship(Space& p_space) : SpaceElement("ressources/ship.png"), space{p_space} {}
 
 void Ship::actualiseState() {
     beingAcceleratedFront = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+    beingAcceleratedFrontS = sf::Keyboard::isKeyPressed(sf::Keyboard::Z);
     beingAcceleratedBack = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
+    beingAcceleratedBackS = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
     beingAcceleratedLeft = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
+    beingAcceleratedLeftS = sf::Keyboard::isKeyPressed(sf::Keyboard::Q);
     beingAcceleratedRight = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
+    beingAcceleratedRightS = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
 }
 
 void Ship::update(float time) {
-    if (!destruct) {
-        if (beingAcceleratedFront) {
-            speed += {0.f, -ACCELERATION * time};
-        }
-        if (beingAcceleratedBack) {
-            speed += {0.f, ACCELERATION * time};
-        }
-        if (beingAcceleratedLeft) {
-            speed += {-ACCELERATION * time, 0.f};
-        }
-        if (beingAcceleratedRight) {
-            speed += {ACCELERATION * time, 0.f};
-        }
-        speed -= speed * COEF_FROTTEMENTS * time;
+    actualiseState();
+    if (beingAcceleratedFront || beingAcceleratedFrontS) {
+        speed += {0.f, -ACCELERATION * time};
     }
-
-    SpaceElement::update(time);
-
-    explosion.update(time);
+    if (beingAcceleratedBack || beingAcceleratedBackS) {
+        speed += {0.f, ACCELERATION * time};
+    }
+    if (beingAcceleratedLeft || beingAcceleratedLeftS) {
+        speed += {-ACCELERATION * time, 0.f};
+    }
+    if (beingAcceleratedRight || beingAcceleratedRightS) {
+        speed += {ACCELERATION * time, 0.f};
+    }
+    speed -= speed * COEF_FROTTEMENTS * time;
 }
 
 void Ship::crashReaction() {
-    if (!destruct) {
-        destruct = true;
-        explosion.start(position);
-    }
+    explosion.start(position);
+    space.add(explosion);
 }
 
-void Ship::display(sf::RenderWindow& window) const {
-    if (!destruct) {
-        SpaceElement::display(window);
-    } else {
-        explosion.display(window);
-    }
-}
 
 
 

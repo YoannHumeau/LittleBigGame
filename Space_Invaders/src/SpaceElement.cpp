@@ -11,11 +11,14 @@ SpaceElement::SpaceElement(std::string_view const& pathImage) {
     sprite.setPosition(position.getX(), position.getY());
 }
 
-void SpaceElement::update(float time) {
+void SpaceElement::actualize(float time) {
+    update(time);
     auto displacement = speed * time;
     position += displacement;
     sprite.setPosition(position.getX(), position.getY());
 }
+
+void SpaceElement::update(float time) {}
 
 void SpaceElement::display(sf::RenderWindow& window) const {
     window.draw(sprite);

@@ -34,20 +34,22 @@
 	"../include/SpaceElement.h"
 	<iostream>
 
-1582714472 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/main.cpp
+1582726874 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/main.cpp
 	<iostream>
-	<SFML/Graphics.hpp>
 	<array>
+	<SFML/Graphics.hpp>
 	"include/Ship.h"
+	"include/Space.h"
 
-1582715578 /home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/include/Ship.h
+1582726804 /home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/include/Ship.h
 	<SFML/Graphics.hpp>
 	"Coordinate.h"
 	"Vecteur.h"
 	"SpaceElement.h"
 	"Explosion.h"
+	"Space.h"
 
-1582714211 /home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/include/SpaceElement.h
+1582727785 /home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/include/SpaceElement.h
 	<SFML/Graphics.hpp>
 	"Vecteur.h"
 	"Coordinate.h"
@@ -62,20 +64,28 @@
 	<iostream>
 	<cmath>
 
-1582715644 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/src/Ship.cpp
+1582726839 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/src/Ship.cpp
 	"../include/Ship.h"
 	<iostream>
 
-1582712019 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/src/SpaceElement.cpp
+1582716275 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/src/SpaceElement.cpp
 	"../include/SpaceElement.h"
 	<iostream>
 
 1582296745 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/src/Vecteur.cpp
 	"Vecteur.h"
 
-1582714271 /home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/include/Explosion.h
+1582716362 /home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/include/Explosion.h
 	"SpaceElement.h"
 
-1582714274 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/src/Explosion.cpp
+1582716431 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/src/Explosion.cpp
 	"Explosion.h"
+
+1582726011 /home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/include/Space.h
+	<vector>
+	<SFML/Graphics.hpp>
+	"SpaceElement.h"
+
+1582726112 source:/home/boris/Documents/ETNA/Run/SpaceInvaders/Space_Invaders/src/Space.cpp
+	"Space.h"
 
