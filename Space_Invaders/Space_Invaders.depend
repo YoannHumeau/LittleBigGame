@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1582706126 source:/home/boris/Documents/ETNA/Run/CPP4_Little_Big_Game/Space_Invaders/main.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	<array>
+	"include/Ship.h"
+
+1582558796 /home/boris/Documents/ETNA/Run/CPP4_Little_Big_Game/Space_Invaders/include/Ship.h
+	"SpaceElement.h"
+
+1582622159 source:/home/boris/Documents/ETNA/Run/CPP4_Little_Big_Game/Space_Invaders/src/Ship.cpp
+	"../include/Ship.h"
+	<iostream>
+
+1582296682 /home/boris/Documents/ETNA/Run/CPP4_Little_Big_Game/Space_Invaders/include/Vecteur.h
+
+1582296745 source:/home/boris/Documents/ETNA/Run/CPP4_Little_Big_Game/Space_Invaders/src/Vecteur.cpp
+	"Vecteur.h"
+
+1582705983 /home/boris/Documents/ETNA/Run/CPP4_Little_Big_Game/Space_Invaders/include/SpaceElement.h
+	<SFML/Graphics.hpp>
+	"Vecteur.h"
+	"Coordinate.h"
+
+1582706282 /home/boris/Documents/ETNA/Run/CPP4_Little_Big_Game/Space_Invaders/include/Coordinate.h
+	"Vecteur.h"
+
+1582706214 source:/home/boris/Documents/ETNA/Run/CPP4_Little_Big_Game/Space_Invaders/src/Coordinate.cpp
+	"../include/Coordinate.h"
+	<iostream>
+	<cmath>
+
+1582706222 source:/home/boris/Documents/ETNA/Run/CPP4_Little_Big_Game/Space_Invaders/src/SpaceElement.cpp
+	"../include/SpaceElement.h"
+	<iostream>
+
