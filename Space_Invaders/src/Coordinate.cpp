@@ -33,10 +33,15 @@ void Coordinate::operator+= (Vecteur const& vecteur)
 }
 
 void Coordinate::recalculate() {
-    while (x > widthSpace) {x -= widthSpace;}
-    while (x < 0) {x += widthSpace;}
-    while (y > heightSpace) {y -= heightSpace;}
-    while (y < 0) {y += heightSpace;}
+    // Penser à ajouter à x la moitier de la largeur du sprite
+    auto halfSpriteX = sprite.getLocalBounds().width / 2.f;
+    // Penser à ajouter à y la moitier de la hauteur du sprite
+    auto halfSpriteY = sprite.getLocalBounds().height / 2.f;
+
+    while (x > widthSpace) {x = widthSpace;}
+    while (x < 0) {x = 0;}
+    while (y > heightSpace) {y = heightSpace;}
+    while (y < 0) {y = 0;}
 }
 
 float Coordinate::calculateDistance(Coordinate const& other) const {
