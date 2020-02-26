@@ -42,12 +42,14 @@
 		<Unit filename="include/Coordinate.h" />
 		<Unit filename="include/Explosion.h" />
 		<Unit filename="include/Ship.h" />
+		<Unit filename="include/Space.h" />
 		<Unit filename="include/SpaceElement.h" />
 		<Unit filename="include/Vecteur.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Coordinate.cpp" />
 		<Unit filename="src/Explosion.cpp" />
 		<Unit filename="src/Ship.cpp" />
+		<Unit filename="src/Space.cpp" />
 		<Unit filename="src/SpaceElement.cpp" />
 		<Unit filename="src/Vecteur.cpp" />
 		<Extensions>

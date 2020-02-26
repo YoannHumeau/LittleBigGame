@@ -6,24 +6,31 @@
 #include "Vecteur.h"
 #include "SpaceElement.h"
 #include "Explosion.h"
+#include "Space.h"
 
 class Ship : public SpaceElement
 {
     public:
-        explicit Ship();
+        explicit Ship(Space& p_space);
 
-        void actualiseState();
-        virtual void update(float time) override;
-        virtual void display(sf::RenderWindow& window) const override;
         virtual void crashReaction() override;
 
-    private:
-        bool beingAcceleratedFront{false};
-        bool beingAcceleratedBack{false};
-        bool beingAcceleratedLeft{false};
-        bool beingAcceleratedRight{false};
-        bool destruct{false};
+    protected:
+        virtual void update(float time) override;
 
+    private:
+        void actualiseState();
+
+        bool beingAcceleratedFront{false};
+        bool beingAcceleratedFrontS{false};
+        bool beingAcceleratedBack{false};
+        bool beingAcceleratedBackS{false};
+        bool beingAcceleratedLeft{false};
+        bool beingAcceleratedLeftS{false};
+        bool beingAcceleratedRight{false};
+        bool beingAcceleratedRightS{false};
+
+        Space& space;
         Explosion explosion{};
 
         static constexpr float ACCELERATION{700.f};

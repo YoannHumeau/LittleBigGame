@@ -10,11 +10,10 @@ class Explosion : public SpaceElement
         Explosion();
 
         void start(Coordinate const& p_position);
-        virtual void update(float time) override;
         virtual void crashReaction() override;
-        virtual void display(sf::RenderWindow& window) const override;
 
     protected:
+        virtual void update(float time) override;
 
     private:
         bool starting{false};

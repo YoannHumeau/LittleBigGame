@@ -17,14 +17,8 @@ void Explosion::update(float time) {
 
     if (age < LIFETIME) {
         sprite.setScale(age/LIFETIME, age/LIFETIME);
-    }
-
-    SpaceElement::update(time);
-}
-
-void Explosion::display(sf::RenderWindow& window) const {
-    if (age < LIFETIME) {
-        SpaceElement::display(window);
+    } else {
+        destruct = true;
     }
 }
 
