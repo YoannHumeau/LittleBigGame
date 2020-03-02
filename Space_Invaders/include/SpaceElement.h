@@ -5,6 +5,10 @@
 #include "Vecteur.h"
 #include "Coordinate.h"
 
+#include <iostream>
+
+enum class ElementType {SHIP, BULLET, OTHER, ENNEMY};
+
 class SpaceElement
 {
     public:
@@ -20,15 +24,17 @@ class SpaceElement
 
         float getRadius() const;
         void crashTest(SpaceElement& other);
-        virtual void crashReaction() = 0;
+        virtual void crashReaction(ElementType otherType) = 0;
 
     protected:
-        virtual void update(float time);
         bool destruct{false};
         sf::Texture texture{};
         sf::Sprite sprite{};
         Coordinate position{};
         Vecteur speed{0.f, 0.f};
+        ElementType type{ElementType::OTHER};
+
+        virtual void update(float time);
 };
 
 #endif // SPACEELEMENT_H

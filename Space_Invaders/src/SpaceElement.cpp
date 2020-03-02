@@ -33,6 +33,6 @@ float SpaceElement::getRadius() const {
 void SpaceElement::crashTest(SpaceElement& other) {
     auto distance = position.calculateDistance(other.position);
     if (distance < getRadius() + other.getRadius()) {
-        crashReaction();
+        crashReaction(other.type);
     }
 }

@@ -9,7 +9,7 @@ class Explosion : public SpaceElement
     public:
         Explosion(Coordinate const& p_position);
 
-        virtual void crashReaction() override;
+        virtual void crashReaction(ElementType otherType) override;
 
     protected:
         virtual void update(float time) override;
