@@ -29,8 +29,7 @@ void Ship::update(float time) {
 }
 
 void Ship::crashReaction() {
-    explosion.start(position);
-    space.add(explosion);
+    space.add(std::make_unique<Explosion>(position));
 }
 
 

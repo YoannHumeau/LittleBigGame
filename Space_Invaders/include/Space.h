@@ -10,7 +10,7 @@ class Space
     public:
         Space();
 
-        void add(SpaceElement& element);
+        void add(std::unique_ptr<SpaceElement> element);
         void actualized();
         void manageCrash();
         void display(sf::RenderWindow& window) const;
@@ -19,7 +19,7 @@ class Space
     protected:
 
     private:
-        std::vector<SpaceElement*> elements{};
+        std::vector<std::unique_ptr<SpaceElement>> elements{};
         sf::Clock chrono{};
 };
 

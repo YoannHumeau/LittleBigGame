@@ -16,7 +16,7 @@ class SpaceElement
         void actualize(float time);
         virtual void display(sf::RenderWindow& window) const;
 
-        static inline bool isDestruct(SpaceElement* element) {return element->destruct;};
+        static inline bool isDestruct(std::unique_ptr<SpaceElement>& element) {return element->destruct;};
 
         float getRadius() const;
         void crashTest(SpaceElement& other);

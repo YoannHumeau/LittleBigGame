@@ -27,7 +27,6 @@ class Ship : public SpaceElement
         bool beingAcceleratedRight{false};
 
         Space& space;
-        Explosion explosion{};
 
         static constexpr float ACCELERATION{700.f};
         static constexpr float COEF_FROTTEMENTS{2.f};
