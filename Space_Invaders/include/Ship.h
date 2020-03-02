@@ -22,13 +22,9 @@ class Ship : public SpaceElement
         void actualiseState();
 
         bool beingAcceleratedFront{false};
-        bool beingAcceleratedFrontS{false};
         bool beingAcceleratedBack{false};
-        bool beingAcceleratedBackS{false};
         bool beingAcceleratedLeft{false};
-        bool beingAcceleratedLeftS{false};
         bool beingAcceleratedRight{false};
-        bool beingAcceleratedRightS{false};
 
         Space& space;
         Explosion explosion{};
