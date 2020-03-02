@@ -7,13 +7,15 @@
 #include "SpaceElement.h"
 #include "Explosion.h"
 #include "Space.h"
+#include "Bullet.h"
 
 class Ship : public SpaceElement
 {
     public:
         explicit Ship(Space& p_space);
 
-        virtual void crashReaction() override;
+        virtual void display(sf::RenderWindow& window) const override;
+        virtual void crashReaction(ElementType otherType) override;
 
     protected:
         virtual void update(float time) override;
@@ -26,7 +28,10 @@ class Ship : public SpaceElement
         bool beingAcceleratedLeft{false};
         bool beingAcceleratedRight{false};
 
+        bool destroyed{false};
+
         Space& space;
+        sf::Clock lastShoot{};
 
         static constexpr float ACCELERATION{700.f};
         static constexpr float COEF_FROTTEMENTS{2.f};

@@ -12,8 +12,8 @@ void Space::add(std::unique_ptr<SpaceElement> element) {
 void Space::actualized() {
     auto timeLoop = chrono.restart().asSeconds();
     // ship.update(timeLoop);
-    for (auto& element : elements) {
-        element->actualize(timeLoop);
+    for (auto i{0u}; i < elements.size(); ++i) {
+        elements[i]->actualize(timeLoop);
     }
 }
 

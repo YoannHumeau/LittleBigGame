@@ -2,6 +2,7 @@
 
 Explosion::Explosion(Coordinate const& p_position) : SpaceElement("ressources/explosion.png")
 {
+    type = ElementType::OTHER;
     position = p_position;
 }
 
@@ -14,4 +15,7 @@ void Explosion::update(float time) {
     }
  }
 
-void Explosion::crashReaction() {}
+void Explosion::crashReaction(ElementType otherType) {
+    if (otherType == type)
+        std::cout << "ok" << std::endl;
+}
