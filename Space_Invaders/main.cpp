@@ -1,5 +1,5 @@
 #include <iostream>
-#include <array>
+#include <memory>
 
 #include <SFML/Graphics.hpp>
 #include "include/Ship.h"
@@ -9,13 +9,17 @@ using namespace std;
 
 constexpr int WINDOW_WITH{1024};
 constexpr int WINDOW_HEIGHT{768};
+const sf::Color SHIP_COLOR{sf::Color{0, 120, 255}};
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(WINDOW_WITH, WINDOW_HEIGHT), "Space Invaders");
     Coordinate::initialiserEspace(WINDOW_WITH, WINDOW_HEIGHT);
     auto space = Space{};
-    auto ship = Ship{space};
+ 
+    // auto ship = Ship{space};
+    // std::unique_ptr<SpaceElement> ship = std::unique_ptr<SpaceElement>{nullptr};
+    // auto ship = std::unique_ptr<SpaceElement>{nullptr};
 
     auto startGame{false};
     while(window.isOpen()) {
@@ -25,7 +29,8 @@ int main()
                 window.close();
             }
             if (event.type == sf::Event::KeyPressed && !startGame) {
-                space.add(ship);
+                // ship = std::make_unique<Ship>(space);
+                space.add(std::make_unique<Ship>(space));
                 startGame = true;
             }
         }

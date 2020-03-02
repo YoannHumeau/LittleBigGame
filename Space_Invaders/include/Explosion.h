@@ -7,16 +7,14 @@
 class Explosion : public SpaceElement
 {
     public:
-        Explosion();
+        Explosion(Coordinate const& p_position);
 
-        void start(Coordinate const& p_position);
         virtual void crashReaction() override;
 
     protected:
         virtual void update(float time) override;
 
     private:
-        bool starting{false};
         float age{};
         static constexpr float LIFETIME{0.5f};
 };

@@ -19,7 +19,7 @@ void SpaceElement::actualize(float time) {
 }
 
 void SpaceElement::update(float time) {
-    std::cout<<time<<std::endl;
+    time = time + 0;
 }
 
 void SpaceElement::display(sf::RenderWindow& window) const {

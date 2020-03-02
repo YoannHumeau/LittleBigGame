@@ -5,14 +5,14 @@ Space::Space()
     //ctor
 }
 
-void Space::add(SpaceElement& element) {
-    elements.push_back(&element);
+void Space::add(std::unique_ptr<SpaceElement> element) {
+    elements.push_back(std::move(element));
 }
 
 void Space::actualized() {
     auto timeLoop = chrono.restart().asSeconds();
     // ship.update(timeLoop);
-    for (auto* element : elements) {
+    for (auto& element : elements) {
         element->actualize(timeLoop);
     }
 }
@@ -28,7 +28,8 @@ void Space::manageCrash() {
 }
 
 void Space::display(sf::RenderWindow& window) const {
-    for (auto element : elements) {        element->display(window);
+    for (auto& element : elements) {
+        element->display(window);
     }
 }
 
