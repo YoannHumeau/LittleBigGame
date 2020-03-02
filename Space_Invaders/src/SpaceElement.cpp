@@ -18,7 +18,9 @@ void SpaceElement::actualize(float time) {
     sprite.setPosition(position.getX(), position.getY());
 }
 
-void SpaceElement::update(float time) {}
+void SpaceElement::update(float time) {
+    std::cout<<time<<std::endl;
+}
 
 void SpaceElement::display(sf::RenderWindow& window) const {
     window.draw(sprite);
