@@ -25,7 +25,7 @@ int main()
     while(window.isOpen()) {
         auto event = sf::Event();
         while(window.pollEvent(event)) {
-            if(event.type == sf::Event::Closed) {
+            if(event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                 window.close();
             }
             if (event.type == sf::Event::KeyPressed && !startGame) {
