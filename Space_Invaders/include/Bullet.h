@@ -9,8 +9,6 @@ class Bullet: public SpaceElement
 {
     private:
         static constexpr float VITESSE{2000.f};
-
-        Coordinate position;
     public:
         Bullet(Coordinate const& p_position);
         virtual void crashReaction(ElementType otherType) override;
