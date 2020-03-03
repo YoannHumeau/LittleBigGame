@@ -6,7 +6,7 @@ int Coordinate::widthSpace{0};
 int Coordinate::heightSpace{0};
 
 Coordinate::Coordinate() {
-    if (widthSpace != 0 || heightSpace != 0) {
+    if (widthSpace == 0 || heightSpace == 0) {
         std::cerr << "Warning : a coordinate was created before the space was initialized" << std::endl;
     }
 }
