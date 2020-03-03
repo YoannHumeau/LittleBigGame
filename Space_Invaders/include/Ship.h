@@ -28,8 +28,6 @@ class Ship : public SpaceElement
         bool beingAcceleratedLeft{false};
         bool beingAcceleratedRight{false};
 
-        bool destroyed{false};
-
         Space& space;
         sf::Clock lastShoot{};
 
