@@ -16,6 +16,8 @@ class Space
         void display(sf::RenderWindow& window) const;
         void cleanSpace();
 
+        inline bool isEmpty() const {return elements.empty();};
+
     protected:
 
     private:

@@ -2,7 +2,10 @@
 
 #include <iostream>
 
-Ship::Ship(Space& p_space) : SpaceElement("ressources/ship.png"), space{p_space} {
+Ship::Ship(Game& p_game, Space& p_space):
+SpaceElement("ressources/ship.png"),
+game{p_game},
+space{p_space} {
     type = ElementType::SHIP;
 }
 
@@ -43,6 +46,7 @@ void Ship::crashReaction(ElementType otherType) {
     if (otherType == type) {
         destruct = true;
         space.add(std::make_unique<Explosion>(position));
+        game.endGame();
     }
 }
 

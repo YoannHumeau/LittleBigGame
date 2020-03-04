@@ -4,10 +4,13 @@
 #include "Coordinate.h"
 #include "SpaceElement.h"
 #include "Vecteur.h"
+#include <SFML/Audio.hpp>
+#include "ResourceManager.h"
 
 class Bullet: public SpaceElement
 {
     private:
+        sf::Sound sound{};
         static constexpr float VITESSE{2000.f};
     public:
         Bullet(Coordinate const& p_position);

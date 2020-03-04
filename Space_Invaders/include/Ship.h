@@ -8,11 +8,12 @@
 #include "Explosion.h"
 #include "Space.h"
 #include "Bullet.h"
+#include "Game.h"
 
 class Ship : public SpaceElement
 {
     public:
-        explicit Ship(Space& p_space);
+        explicit Ship(Game& p_game, Space& p_space);
 
         virtual void display(sf::RenderWindow& window) const override;
         virtual void crashReaction(ElementType otherType) override;
@@ -28,6 +29,7 @@ class Ship : public SpaceElement
         bool beingAcceleratedLeft{false};
         bool beingAcceleratedRight{false};
 
+        Game& game;
         Space& space;
         sf::Clock lastShoot{};
 

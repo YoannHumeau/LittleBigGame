@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Vecteur.h"
 #include "Coordinate.h"
+#include "ResourceManager.h"
 
 #include <iostream>
 
@@ -28,7 +29,6 @@ class SpaceElement
 
     protected:
         bool destruct{false};
-        sf::Texture texture{};
         sf::Sprite sprite{};
         Coordinate position{};
         Vecteur speed{0.f, 0.f};
