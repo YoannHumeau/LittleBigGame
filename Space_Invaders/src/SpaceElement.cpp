@@ -3,10 +3,7 @@
 #include <iostream>
 
 SpaceElement::SpaceElement(std::string_view const& pathImage) {
-    if (!texture.loadFromFile(pathImage.data())) {
-        std::cerr << "L'image " << pathImage << " n'a pas été correctement chargée !" << std::endl;
-    }
-    sprite.setTexture(texture);
+    sprite.setTexture(ResourceManager<sf::Texture>::getResource(pathImage));
     sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
     sprite.setPosition(position.getX(), position.getY());
 }
