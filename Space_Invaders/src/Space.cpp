@@ -1,4 +1,5 @@
 #include "Space.h"
+#include "TimeManager.h"
 
 Space::Space()
 {
