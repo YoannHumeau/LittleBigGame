@@ -18,6 +18,6 @@ void TimeManager::Update(void)
     timing = this->_clock.restart().asSeconds();
 }
 
-float TimeManager::GetElapsedTimeAsSeconds(void) const {
+float TimeManager::GetElapsedTime(void) const {
     return timing;
 }
