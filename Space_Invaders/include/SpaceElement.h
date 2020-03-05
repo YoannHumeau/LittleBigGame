@@ -5,31 +5,33 @@
 #include "Vecteur.h"
 #include "Coordinate.h"
 #include "ResourceManager.h"
+#include "Resource.h"
 
 #include <iostream>
 
-enum class ElementType {SHIP, BULLET, OTHER, ENNEMY};
+enum class ElementType {SHIP, BULLET, OTHER, BONUS, ENNEMY};
 
-class SpaceElement
+class SpaceElement: public Resource
 {
     public:
         explicit SpaceElement(std::string_view const& pathImage);
         SpaceElement(SpaceElement const& other) = delete;
         virtual ~SpaceElement() = default;
 
-        void operator=(SpaceElement const& other) = delete;
+        float getRadius() const;
+        void crashTest(SpaceElement& other);
         void actualize(float time);
+        void operator=(SpaceElement const& other) = delete;
+
         virtual void display(sf::RenderWindow& window) const;
+        virtual void crashReaction(ElementType otherType) = 0;
 
         static inline bool isDestruct(std::unique_ptr<SpaceElement>& element) {return element->destruct;};
 
-        float getRadius() const;
-        void crashTest(SpaceElement& other);
-        virtual void crashReaction(ElementType otherType) = 0;
-
     protected:
         bool destruct{false};
-        sf::Sprite sprite{};
+
+        Resource resource{};
         Coordinate position{};
         Vecteur speed{0.f, 0.f};
         ElementType type{ElementType::OTHER};

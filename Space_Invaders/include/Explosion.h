@@ -16,7 +16,6 @@ class Explosion : public SpaceElement
         virtual void update(float time) override;
 
     private:
-        sf::Sound sound{};
         float age{};
         static constexpr float LIFETIME{0.5f};
 };

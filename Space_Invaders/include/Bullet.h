@@ -10,7 +10,6 @@
 class Bullet: public SpaceElement
 {
     private:
-        sf::Sound sound{};
         static constexpr float VITESSE{2000.f};
     public:
         Bullet(Coordinate const& p_position);
