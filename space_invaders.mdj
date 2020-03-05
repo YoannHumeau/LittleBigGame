@@ -7158,8 +7158,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 960,
-											"top": 1056,
+											"left": 1568,
+											"top": 864,
 											"height": 13
 										},
 										{
@@ -7169,9 +7169,9 @@
 												"$ref": "AAAAAAFwn5nmVmkqNNw="
 											},
 											"font": "Arial;13;1",
-											"left": 1213,
-											"top": 663,
-											"width": 112.58837890625,
+											"left": 1517,
+											"top": 567,
+											"width": 163.16015625,
 											"height": 13,
 											"text": "TimeManager"
 										},
@@ -7183,8 +7183,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 960,
-											"top": 1056,
+											"left": 1568,
+											"top": 864,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -7197,16 +7197,16 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 960,
-											"top": 1056,
+											"left": 1568,
+											"top": 864,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 1208,
-									"top": 656,
-									"width": 122.58837890625,
+									"left": 1512,
+									"top": 560,
+									"width": 173.16015625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFwn5nmVmkr5xw="
@@ -7241,19 +7241,37 @@
 												"$ref": "AAAAAAFwqujrWIjjGKs="
 											},
 											"font": "Arial;13;0",
-											"left": 1213,
-											"top": 686,
-											"width": 112.58837890625,
+											"left": 1517,
+											"top": 590,
+											"width": 163.16015625,
 											"height": 13,
 											"text": "-clock: Clock",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFwqxrMD6Yw2AQ=",
+											"_parent": {
+												"$ref": "AAAAAAFwn5nmVmkvhHg="
+											},
+											"model": {
+												"$ref": "AAAAAAFwqxrLsKYtjU8="
+											},
+											"font": "Arial;13;0",
+											"left": 1517,
+											"top": 605,
+											"width": 163.16015625,
+											"height": 13,
+											"underline": true,
+											"text": "-_instance: TimeManager",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 1208,
-									"top": 681,
-									"width": 122.58837890625,
-									"height": 23
+									"left": 1512,
+									"top": 585,
+									"width": 173.16015625,
+									"height": 38
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -7275,9 +7293,9 @@
 												"$ref": "AAAAAAFwquknWok/0Jo="
 											},
 											"font": "Arial;13;0",
-											"left": 1213,
-											"top": 709,
-											"width": 112.58837890625,
+											"left": 1517,
+											"top": 628,
+											"width": 163.16015625,
 											"height": 13,
 											"text": "+GetElapsedTime()",
 											"horizontalAlignment": 0
@@ -7292,19 +7310,36 @@
 												"$ref": "AAAAAAFwqulPkImOFGI="
 											},
 											"font": "Arial;13;0",
-											"left": 1213,
-											"top": 724,
-											"width": 112.58837890625,
+											"left": 1517,
+											"top": 643,
+											"width": 163.16015625,
 											"height": 13,
 											"text": "+Reset()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFwqxxMcqpmvL4=",
+											"_parent": {
+												"$ref": "AAAAAAFwn5nmV2kwr2Q="
+											},
+											"model": {
+												"$ref": "AAAAAAFwqxxMN6pjyDo="
+											},
+											"font": "Arial;13;0",
+											"left": 1517,
+											"top": 658,
+											"width": 163.16015625,
+											"height": 13,
+											"text": "-Operator(): TimeManager&",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 1208,
-									"top": 704,
-									"width": 122.58837890625,
-									"height": 38
+									"left": 1512,
+									"top": 623,
+									"width": 173.16015625,
+									"height": 53
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -7317,8 +7352,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 480,
-									"top": 528,
+									"left": 784,
+									"top": 432,
 									"width": 10,
 									"height": 10
 								},
@@ -7333,18 +7368,18 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 480,
-									"top": 528,
+									"left": 784,
+									"top": 432,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 1208,
-							"top": 656,
-							"width": 122.58837890625,
-							"height": 86,
+							"left": 1512,
+							"top": 560,
+							"width": 173.16015625,
+							"height": 131,
 							"nameCompartment": {
 								"$ref": "AAAAAAFwn5nmVmkqNNw="
 							},
@@ -13127,6 +13162,19 @@
 							"name": "clock",
 							"visibility": "private",
 							"type": "Clock"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFwqxrLsKYtjU8=",
+							"_parent": {
+								"$ref": "AAAAAAFwn5nmTGknZLE="
+							},
+							"name": "_instance",
+							"visibility": "private",
+							"isStatic": true,
+							"type": {
+								"$ref": "AAAAAAFwn5nmTGknZLE="
+							}
 						}
 					],
 					"operations": [
@@ -13145,6 +13193,27 @@
 								"$ref": "AAAAAAFwn5nmTGknZLE="
 							},
 							"name": "Reset"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFwqxxMN6pjyDo=",
+							"_parent": {
+								"$ref": "AAAAAAFwn5nmTGknZLE="
+							},
+							"name": "Operator",
+							"documentation": "TimeManager operator=(TimeManager&) = delete;",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFwqxyWfaqg4FE=",
+									"_parent": {
+										"$ref": "AAAAAAFwqxxMN6pjyDo="
+									},
+									"type": "TimeManager&",
+									"direction": "return"
+								}
+							]
 						}
 					]
 				},
