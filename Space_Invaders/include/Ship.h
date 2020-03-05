@@ -18,6 +18,8 @@ class Ship : public SpaceElement
         virtual void display(sf::RenderWindow& window) const override;
         virtual void crashReaction(ElementType otherType) override;
 
+        virtual void attack(void);
+
     protected:
         virtual void update(float time) override;
 
