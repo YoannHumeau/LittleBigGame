@@ -1,7 +1,6 @@
 #ifndef VECTEUR_H
 #define VECTEUR_H
 
-
 struct Vecteur
 {
     void operator+=(Vecteur const& other);
