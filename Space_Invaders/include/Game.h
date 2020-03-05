@@ -10,16 +10,19 @@ class Game: public std::exception
 {
     private:
         bool running{false};
+        int score{};
         Space &space;
         sf::Sprite homeSprite;
         sf::Font font;
         std::unique_ptr<sf::Text> textException;
+        // TimeManager& tm{TimeManager::GetInstance()};
 
     public:
         Game(Space&);
 
         inline bool isRunning() const { return running;};
 
+        void addPoints(int);
         void startGame();
         void endGame();
         void display(sf::RenderWindow&) const;

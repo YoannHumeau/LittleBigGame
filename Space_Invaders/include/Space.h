@@ -22,7 +22,6 @@ class Space
 
     private:
         std::vector<std::unique_ptr<SpaceElement>> elements{};
-        sf::Clock chrono{};
 };
 
 #endif // SPACE_H
