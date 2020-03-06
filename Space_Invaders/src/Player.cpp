@@ -1,15 +1,13 @@
-#include "../include/Ship.h"
+#include "Player.h"
 
-#include <iostream>
-
-Ship::Ship(/*Game& p_game, */Space& p_space, std::string_view path):
-SpaceElement(path),
-// game{p_game},
-space{p_space} {
-    // type = ElementType::SHIP;
+Player::Player(Game& p_game, Space& p_space):
+Ship(p_space, "ressources/ship.png"),
+game{p_game}
+{
+    type = ElementType::PLAYER;
 }
 
-void Ship::actualiseState() {
+void Player::actualiseState() {
     if (!destruct) {
         beingAcceleratedFront = sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Z);
         beingAcceleratedBack = sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S);
@@ -19,14 +17,7 @@ void Ship::actualiseState() {
     }
 }
 
-void Ship::attack() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && lastShoot.getElapsedTime().asSeconds() > 0.2) {
-        space.add(std::make_unique<Bullet>(position));
-        lastShoot.restart();
-    }
-}
-
-void Ship::update(float time) {
+void Player::update(float time) {
     actualiseState();
     if (!destruct) {
         if (beingAcceleratedFront) {
@@ -45,19 +36,11 @@ void Ship::update(float time) {
     }
 }
 
-void Ship::crashReaction(ElementType otherType) {
+void Player::crashReaction(ElementType otherType) {
 
     if (otherType == ElementType::ENNEMY) {
         destruct = true;
-        // space.add(std::make_unique<Explosion>(position));
-        // game.endGame();
+        game.endGame();
+        space.add(std::make_unique<Explosion>(position));
     }
 }
-
-// void Ship::display(sf::RenderWindow& window) const
-// {
-//     if (!destruct)
-//         SpaceElement::display(window);
-// }
-
-

@@ -13,30 +13,26 @@
 class Ship : public SpaceElement
 {
     public:
-        explicit Ship(Game& p_game, Space& p_space);
+        explicit Ship(/*Game& p_game, */Space& p_space, std::string_view path = "ressources/ship.png");
 
-        virtual void display(sf::RenderWindow& window) const override;
+        // virtual void display(sf::RenderWindow& window) const override;
         virtual void crashReaction(ElementType otherType) override;
 
         virtual void attack(void);
 
     protected:
         virtual void update(float time) override;
-
-    private:
-        void actualiseState();
-
+        virtual void actualiseState();
+        static constexpr float COEF_FROTTEMENTS{2.f};
         bool beingAcceleratedFront{false};
         bool beingAcceleratedBack{false};
         bool beingAcceleratedLeft{false};
         bool beingAcceleratedRight{false};
-
-        Game& game;
+        // Game& game;
         Space& space;
         sf::Clock lastShoot{};
 
         static constexpr float ACCELERATION{700.f};
-        static constexpr float COEF_FROTTEMENTS{2.f};
 };
 
 #endif // SHIP_H_INCLUDED

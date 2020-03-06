@@ -7,7 +7,7 @@ Space::Space()
 }
 
 void Space::add(std::unique_ptr<SpaceElement> element) {
-    elements.push_back(std::move(element));
+    toAdd.push_back(std::move(element));
 }
 
 void Space::actualized() {
@@ -38,4 +38,12 @@ void Space::display(sf::RenderWindow& window) const {
 void Space::cleanSpace() {
     auto endTable = std::remove_if(std::begin(elements), std::end(elements), SpaceElement::isDestruct);
     elements.erase(endTable, std::end(elements));
+    for (auto& element : toAdd)
+        elements.push_back(std::move(element));
+    toAdd.clear();
+}
+
+void Space::purge() {
+    elements.clear();
+    toAdd.clear();
 }

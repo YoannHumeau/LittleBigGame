@@ -1,8 +1,9 @@
 #include "Game.h"
 #include <memory>
 #include "ResourceManager.h"
-#include "Ship.h"
+#include "Player.h"
 #include "font.h"
+#include "Ennemy.h"
 
 Game::Game(Space &p_space):
 space{p_space}
@@ -18,13 +19,14 @@ space{p_space}
 void Game::startGame()
 {
     running = true;
-    space.add(std::make_unique<Ship>(*this, space));
+    space.add(std::make_unique<Player>(*this, space));
+    space.add(std::make_unique<Ennemy>(space));
 }
 
 void Game::endGame()
 {
     running = false;
-    space.cleanSpace();
+    space.purge();
 }
 
 void Game::display(sf::RenderWindow& window) const

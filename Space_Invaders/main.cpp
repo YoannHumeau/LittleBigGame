@@ -27,7 +27,8 @@ int main()
                 if(event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                     window.close();
                 }
-                if (event.type == sf::Event::KeyPressed && !game.isRunning()) {
+
+                if (event.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !game.isRunning()) {
                     game.startGame();
                 }
             }
