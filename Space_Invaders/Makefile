@@ -13,7 +13,7 @@ RM			=	rm -f
 all:		$(NAME1) $(NAME2)
 
 $(NAME1):	$(OBJ1)
-			$(CXX) $(CXXFLAGS) $(LIBFLAGS) $(OBJ1) -o $(NAME1)
+			$(CXX) $(OBJ1) -o $(NAME1) $(CXXFLAGS) $(LIBFLAGS)
 clean:
 	$(RM)	$(OBJ1) 
 
