@@ -28,7 +28,7 @@ int main()
                     window.close();
                 }
 
-                if (event.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !game.isRunning()) {
+                if (event.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !game.isRunning()) {
                     game.startGame();
                 }
             }
