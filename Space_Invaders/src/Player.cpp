@@ -5,7 +5,7 @@ Ship(p_space, "ressources/ship.png"),
 game{p_game}
 {
     type = ElementType::PLAYER;
-    life = 2;
+    // life = 2;
 }
 
 void Player::actualiseState() {
@@ -44,16 +44,16 @@ void Player::crashReaction(ElementType otherType) {
         // if (shield > 0)
         //     shield -= 1;
         // else {
-            if (life < 0) {
-                life -= 1;
-                // position.
-            }
-            else {
-                std::cout << " SHIP LIFE : " << life << std::endl;
+            // if (life < 0) {
+            //     life -= 1;
+            //     // position.
+            // }
+            // else {
+                // std::cout << " SHIP LIFE : " << life << std::endl;
                 this->life = life - 1;
                 destruct = true;
                 game.endGame();
-            }
+            // }
             // update();
             space.add(std::make_unique<Explosion>(position));
         }
