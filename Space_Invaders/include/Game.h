@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <exception>
+#include "EnnemyFactory.h"
 
 class Game: public std::exception
 {
