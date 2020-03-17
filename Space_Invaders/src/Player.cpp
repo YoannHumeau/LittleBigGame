@@ -5,11 +5,7 @@ Ship(p_space, "ressources/ship.png"),
 game{p_game}
 {
     type = ElementType::PLAYER;
-<<<<<<< HEAD
-    // life = 2;
-=======
     life = 2;
->>>>>>> refs/remotes/origin/develop
 }
 
 void Player::actualiseState() {
