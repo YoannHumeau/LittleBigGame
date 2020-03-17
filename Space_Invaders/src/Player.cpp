@@ -5,7 +5,11 @@ Ship(p_space, "ressources/ship.png"),
 game{p_game}
 {
     type = ElementType::PLAYER;
+<<<<<<< HEAD
     // life = 2;
+=======
+    life = 2;
+>>>>>>> refs/remotes/origin/develop
 }
 
 void Player::actualiseState() {
@@ -53,7 +57,7 @@ void Player::crashReaction(ElementType otherType) {
                 this->life = life - 1;
                 destruct = true;
                 game.endGame();
-            // }
+            }
             // update();
             space.add(std::make_unique<Explosion>(position));
         }
