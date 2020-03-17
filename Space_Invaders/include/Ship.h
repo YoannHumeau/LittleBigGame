@@ -32,6 +32,8 @@ class Ship : public SpaceElement
         Space& space;
         sf::Clock lastShoot{};
 
+        int life{1};
+
         static constexpr float ACCELERATION{700.f};
 };
 
