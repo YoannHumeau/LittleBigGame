@@ -5,6 +5,7 @@ Ship(p_space, "ressources/ship.png"),
 game{p_game}
 {
     type = ElementType::PLAYER;
+    life = 2;
 }
 
 void Player::actualiseState() {
@@ -38,9 +39,28 @@ void Player::update(float time) {
 
 void Player::crashReaction(ElementType otherType) {
 
+    // std::cout << " SHIP LIFE : " << life << std::endl;
     if (otherType == ElementType::ENNEMY) {
-        destruct = true;
-        game.endGame();
-        space.add(std::make_unique<Explosion>(position));
+        // if (shield > 0)
+        //     shield -= 1;
+        // else {
+            if (life > 0) {
+                life -= 1;
+                position.
+            }
+            else {
+                std::cout << " SHIP LIFE : " << life << std::endl;
+                this->life = life - 1;
+                destruct = true;
+                game.endGame();
+            }
+            // update();
+            space.add(std::make_unique<Explosion>(position));
+        }
+    // } else if (otherType == ElementType::BONUS) {
+    //     std::cout << "Consumed bonus" << std::endl;
+    //     // element->consume(this);
+    // } else if (otherType == ElementType::WEAPON) {
+    //     this->weapon = "weapon on";
     }
 }
