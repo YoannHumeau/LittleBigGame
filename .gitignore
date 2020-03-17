@@ -1,3 +1,13 @@
 build
 .vscode
 *.pdf
+
+Space_Invaders/Space_Invaders.cbp
+Space_Invaders/Space_Invaders.depend
+Space_Invaders/Space_Invaders.layout
+Space_Invaders/bin/Debug/Space_Invaders
+Space_Invaders/bin/Release/Space_Invaders
+Space_Invaders/obj/Debug/*.o
+Space_Invaders/obj/Debug/src/*.o
+Space_Invaders/obj/Release/*.o
+Space_Invaders/obj/Release/src/*.o
