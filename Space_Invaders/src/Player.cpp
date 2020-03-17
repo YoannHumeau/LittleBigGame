@@ -44,12 +44,12 @@ void Player::crashReaction(ElementType otherType) {
         // if (shield > 0)
         //     shield -= 1;
         // else {
-            // if (life < 0) {
-            //     life -= 1;
-            //     // position.
-            // }
-            // else {
-                // std::cout << " SHIP LIFE : " << life << std::endl;
+            if (life < 0) {
+                life -= 1;
+                // position.
+            }
+            else {
+                std::cout << " SHIP LIFE : " << life << std::endl;
                 this->life = life - 1;
                 destruct = true;
                 game.endGame();
