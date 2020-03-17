@@ -44,9 +44,9 @@ void Player::crashReaction(ElementType otherType) {
         // if (shield > 0)
         //     shield -= 1;
         // else {
-            if (life > 0) {
+            if (life < 0) {
                 life -= 1;
-                position.
+                // position.
             }
             else {
                 std::cout << " SHIP LIFE : " << life << std::endl;
@@ -62,5 +62,5 @@ void Player::crashReaction(ElementType otherType) {
     //     // element->consume(this);
     // } else if (otherType == ElementType::WEAPON) {
     //     this->weapon = "weapon on";
-    }
+    // }
 }
