@@ -5,6 +5,8 @@
 #include "font.h"
 #include "Ennemy.h"
 
+#include "TimeManager.h"
+
 Game::Game(Space &p_space):
 space{p_space}
 {
@@ -20,8 +22,9 @@ void Game::startGame()
 {
     running = true;
     space.add(std::make_unique<Player>(*this, space));
-    space.add(std::make_unique<Ennemy>(space));
-    // space.add(EnnemyFactory::GetInstance().Create(space));
+    // space.add(std::make_unique<Ennemy>(space));
+    space.add(EnnemyFactory::GetInstance().Create(space, 150));
+    space.add(EnnemyFactory::GetInstance().Create(space, 450));
 }
 
 void Game::endGame()

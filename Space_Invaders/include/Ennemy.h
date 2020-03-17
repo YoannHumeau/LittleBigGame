@@ -6,7 +6,7 @@
 class Ennemy: public Ship
 {
     public:
-        explicit Ennemy(/*Game& p_game, */Space& p_space);
+        explicit Ennemy(/*Game& p_game, */Space& p_space, float y);
         virtual void crashReaction(ElementType otherType) override;
         
     private:

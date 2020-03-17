@@ -1,9 +1,9 @@
 #include "Ennemy.h"
 
-Ennemy::Ennemy(Space& p_space):
+Ennemy::Ennemy(Space& p_space, float y):
 Ship(p_space, "ressources/asteroide.png")
 {
-    position = Coordinate{750, 350};
+    position = Coordinate{750, y};
     type = ElementType::ENNEMY;
 }
 
@@ -38,6 +38,5 @@ void Ennemy::crashReaction(ElementType otherType) {
     if (otherType == ElementType::BULLET) {
         destruct = true;
         space.add(std::make_unique<Explosion>(position));
-        space.add(std::make_unique<Ennemy>(space));
     }
 }
