@@ -11,6 +11,8 @@ class Space
         Space();
 
         void add(std::unique_ptr<SpaceElement> element);
+        void addEnnemies(int nbEnnemies);
+
         void actualized();
         void manageCrash();
         void display(sf::RenderWindow& window) const;

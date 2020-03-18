@@ -3,7 +3,7 @@
 Ennemy::Ennemy(Space& p_space, float y):
 Ship(p_space, "ressources/asteroide.png")
 {
-    position = Coordinate{750, y};
+    position = Coordinate{1250, y};
     type = ElementType::ENNEMY;
 }
 

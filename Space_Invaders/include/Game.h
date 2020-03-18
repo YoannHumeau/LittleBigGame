@@ -13,6 +13,8 @@ class Game: public std::exception
         bool running{false};
         int score{};
 
+        sf::Clock _clock{};
+
         Space &space;
         sf::Sprite homeSprite;
         sf::Font font;
@@ -25,6 +27,7 @@ class Game: public std::exception
 
         void addPoints(int);
         void startGame();
+        void generateEnnemies();
         void endGame();
         void display(sf::RenderWindow&) const;
         void initException(std::exception const&);

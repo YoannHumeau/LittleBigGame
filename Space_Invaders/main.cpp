@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "include/Game.h"
 #include "include/Space.h"
+#include "TimeManager.h"
 
 using namespace std;
 
@@ -15,23 +16,17 @@ int main()
     auto space = Space{};
     auto game = Game{space};
  
-     
-    // auto ship = Ship{space};
-    // std::unique_ptr<SpaceElement> ship = std::unique_ptr<SpaceElement>{nullptr};
-    // auto ship = std::unique_ptr<SpaceElement>{nullptr};
-
     while(window.isOpen()) {
         try {
             auto event = sf::Event();
             while(window.pollEvent(event)) {
-                if(event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                if(event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
                     window.close();
-                }
-
-                if (event.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !game.isRunning()) {
+                if (event.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !game.isRunning())
                     game.startGame();
-                }
             }
+
+            game.generateEnnemies();
 
             space.actualized();
             space.manageCrash();

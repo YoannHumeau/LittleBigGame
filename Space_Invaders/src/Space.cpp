@@ -1,4 +1,5 @@
 #include "Space.h"
+#include "Ennemy.h"
 #include "TimeManager.h"
 
 Space::Space()
@@ -8,6 +9,13 @@ Space::Space()
 
 void Space::add(std::unique_ptr<SpaceElement> element) {
     toAdd.push_back(std::move(element));
+}
+
+void Space::addEnnemies(int nbEnnemies)
+{
+    int y = 300;
+    for (int i = 1; i <= nbEnnemies; i++)
+        add(std::make_unique<Ennemy>(*this, y*i));
 }
 
 void Space::actualized() {
