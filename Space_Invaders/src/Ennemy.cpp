@@ -1,7 +1,7 @@
 #include "Ennemy.h"
 
 Ennemy::Ennemy(Space& p_space, float y):
-Ship(p_space, "ressources/asteroide.png")
+Ship(p_space, "ressources/ennemy.png")
 {
     position = Coordinate{1250, y};
     type = ElementType::ENNEMY;
