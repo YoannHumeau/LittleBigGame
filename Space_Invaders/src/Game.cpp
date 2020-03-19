@@ -22,6 +22,7 @@ void Game::startGame()
     running = true;
     space.add(std::make_unique<Background>());
     space.add(std::make_unique<Player>(*this, space));
+    space.add(EnnemyFactory::GetInstance().Create(space, 1000, 150, 4));
 }
 
 void Game::generateEnnemies()

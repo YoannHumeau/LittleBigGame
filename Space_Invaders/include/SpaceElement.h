@@ -25,6 +25,7 @@ class SpaceElement: public Resource
         void screenLimit(void);
         void destructOutOfScreen(void);
         // void backgroundLimit(void);
+        // inline ElementType getElementType() const {return type;};
 
         virtual void display(sf::RenderWindow& window) const;
         // virtual void crashReaction(ElementType otherType) = 0;
