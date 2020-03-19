@@ -13,7 +13,7 @@
 class Ship : public SpaceElement
 {
     public:
-        explicit Ship(/*Game& p_game, */Space& p_space, std::string_view path = "ressources/ship.png");
+        explicit Ship(Space& p_space, std::string_view path = "ressources/ship.png");
 
         // virtual void display(sf::RenderWindow& window) const override;
         virtual void crashReaction(ElementType otherType) override;
@@ -33,8 +33,7 @@ class Ship : public SpaceElement
         sf::Clock lastShoot{};
 
         int life{1};
-
-        static constexpr float ACCELERATION{700.f};
+        float ACCELERATION;
 };
 
 #endif // SHIP_H_INCLUDED

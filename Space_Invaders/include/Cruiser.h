@@ -5,7 +5,8 @@
 
 class Cruiser: public Ennemy
 {
-
+    public:
+        explicit Cruiser(Space& p_space, float x, float y);
 };
 
 #endif

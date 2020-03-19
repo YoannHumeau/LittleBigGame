@@ -14,6 +14,6 @@ SpaceElement("ressources/missile.png")
 
 void Bullet::crashReaction(ElementType otherType)
 {
-    if (otherType == ElementType::ENNEMY)
+    if (otherType == ElementType::ENNEMY || otherType == ElementType::BULLET)
         destruct = true;
 }

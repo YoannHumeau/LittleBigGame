@@ -5,7 +5,8 @@
 
 class Reaper: public Ennemy
 {
-
+    public:
+        explicit Reaper(Space& p_space, float x, float y);
 };
 
 #endif
