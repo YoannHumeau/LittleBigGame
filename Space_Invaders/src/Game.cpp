@@ -20,12 +20,13 @@ void Game::startGame()
 {
     running = true;
     space.add(std::make_unique<Player>(*this, space));
+    space.add(EnnemyFactory::GetInstance().Create(space, 1000, 150, 4));
 }
 
 void Game::generateEnnemies()
 {
     if (isRunning()) {
-        if (_clock.getElapsedTime().asSeconds() > 2) {
+        if (_clock.getElapsedTime().asSeconds() > 3) {
             space.addEnnemies(4);
             _clock.restart().asSeconds();
         }

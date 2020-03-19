@@ -7,7 +7,7 @@ class Player: public Ship
 {
     private:
         // int maxLife{3};
-        // int shield{0};
+        int shield{1};
         // int maxShield{3};
         virtual void actualiseState() override;
         virtual void update(float time) override;

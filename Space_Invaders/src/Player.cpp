@@ -18,6 +18,7 @@ void Player::actualiseState() {
     }
 }
 
+// TODO fonciont move à exporter et centraliser, les ennemis bougent aussi !
 void Player::update(float time) {
     actualiseState();
     if (!destruct) {
@@ -37,30 +38,37 @@ void Player::update(float time) {
     }
 }
 
+// TODO : implémenter l'observer pour détruire l'ennemi qui entre en collision avec le player
 void Player::crashReaction(ElementType otherType) {
 
-    // std::cout << " SHIP LIFE : " << life << std::endl;
+    // if (element.getElementType() == ElementType::ENNEMY) {
     if (otherType == ElementType::ENNEMY) {
-        // if (shield > 0)
-        //     shield -= 1;
-        // else {
-            if (life < 0) {
+        std::cout << " SHIP SHIELD : " << shield << std::endl;
+        if (shield > 0) {
+            // Destroy the ennemy
+            // element.destruct = true;
+            shield -= 1;
+            space.add(std::make_unique<Explosion>(position));
+            position = {100, 100};
+        } else {
+            std::cout << " SHIP LIFE : " << life << std::endl;
+            
+            if (life > 1) {
+                space.add(std::make_unique<Explosion>(position));
                 life -= 1;
-                // position.
+                position = {100, 100};
             }
             else {
-                std::cout << " SHIP LIFE : " << life << std::endl;
                 this->life = life - 1;
                 destruct = true;
                 game.endGame();
+                space.add(std::make_unique<Explosion>(position));
             }
-            // update();
-            space.add(std::make_unique<Explosion>(position));
         }
     // } else if (otherType == ElementType::BONUS) {
     //     std::cout << "Consumed bonus" << std::endl;
     //     // element->consume(this);
     // } else if (otherType == ElementType::WEAPON) {
     //     this->weapon = "weapon on";
-    // }
+    }
 }
