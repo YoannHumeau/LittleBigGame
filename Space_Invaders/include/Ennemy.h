@@ -3,15 +3,18 @@
 
 #include "Ship.h"
 
+enum class EnnemyType {CRUISER = 0, REAPER = 1, DESTROYER = 2, BOSS = 3};
+
 class Ennemy: public Ship
 {
     public:
-        explicit Ennemy(/*Game& p_game, */Space& p_space, float y);
+        explicit Ennemy(Space& p_space, float x, float y, std::string_view path);
+        ~Ennemy() = 0;
         virtual void crashReaction(ElementType otherType) override;
         
-    private:
+    protected:
 
-        static constexpr float ACCELERATION{300.f};
+        EnnemyType eType;
 
         virtual void actualiseState() override;
         virtual void update(float time) override;

@@ -1,11 +1,13 @@
 #include "Ennemy.h"
 
-Ennemy::Ennemy(Space& p_space, float y):
-Ship(p_space, "ressources/ennemy.png")
+Ennemy::Ennemy(Space& p_space, float x, float y, std::string_view path):
+Ship(p_space, path)
 {
-    position = Coordinate{1250, y};
+    position = Coordinate{x, y};
     type = ElementType::ENNEMY;
 }
+
+Ennemy::~Ennemy() {}
 
 void Ennemy::actualiseState() {
     if (!destruct) {

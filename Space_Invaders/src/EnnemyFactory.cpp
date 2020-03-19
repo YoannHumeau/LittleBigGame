@@ -1,5 +1,6 @@
 #include "EnnemyFactory.h"
-#include "Ennemy.h"
+#include "Cruiser.h"
+#include "Reaper.h"
 
 EnnemyFactory EnnemyFactory::_instance = EnnemyFactory();
 
@@ -10,11 +11,21 @@ EnnemyFactory &EnnemyFactory::GetInstance() {
     return _instance;
 }
 
-std::unique_ptr<Ennemy> EnnemyFactory::Create(Space &space, float y) {
+std::unique_ptr<SpaceElement> EnnemyFactory::Create(Space &space, float x, float y, int ennemyType) {
 
-    // space.add(std::make_unique<Ennemy>(space));
-    // space.add(std::unique_ptr<Ennemy>());
-    return std::make_unique<Ennemy>(space, y);
-    // return std::unique_ptr<Ennemy>();
-    // return std::make_unique<Ennemy>(space);
+    std::unique_ptr<SpaceElement> ennemy = nullptr;
+    switch (ennemyType)
+    {
+    case 1:
+        ennemy = std::make_unique<Cruiser>(space, x, y);
+        break;
+    case 2:
+        ennemy = std::make_unique<Reaper>(space, x, y);
+        break;
+    default:
+        ennemy = std::make_unique<Cruiser>(space, x, y);
+        break;
+    }
+
+    return ennemy;
 }

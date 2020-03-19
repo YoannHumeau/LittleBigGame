@@ -1,5 +1,5 @@
 #include "Space.h"
-#include "Ennemy.h"
+#include "EnnemyFactory.h"
 #include "TimeManager.h"
 
 Space::Space()
@@ -15,7 +15,7 @@ void Space::addEnnemies(int nbEnnemies)
 {
     int y = 300;
     for (int i = 1; i <= nbEnnemies; i++)
-        add(std::make_unique<Ennemy>(*this, y*i));
+        add(EnnemyFactory::GetInstance().Create(*this, 1000, y*i, i));
 }
 
 void Space::actualized() {
