@@ -5,8 +5,6 @@ class Ennemy;
 
 #include "Space.h"
 
-// enum class EnnemyType {CRUISER = 0, REAPER = 1, DESTROYER = 2, BOSS = 3};
-
 class EnnemyFactory
 {
     private:
