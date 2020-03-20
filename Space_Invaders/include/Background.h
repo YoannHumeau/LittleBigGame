@@ -8,6 +8,7 @@ class Background: public SpaceElement
     public:
         Background();
 
+        virtual void update(float time) override;
         virtual void crashReaction(ElementType otherType) override;
 
     private:
