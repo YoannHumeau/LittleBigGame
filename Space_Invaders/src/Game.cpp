@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "font.h"
 #include "Ennemy.h"
+#include "Bonus.h"
 #include "Background.h"
 
 Game::Game(Space &p_space):
@@ -23,6 +24,7 @@ void Game::startGame()
     space.add(std::make_unique<Background>());
     space.add(std::make_unique<Player>(*this, space));
     space.add(EnnemyFactory::GetInstance().Create(space, 1000, 150, 2));
+    space.add(BonusFactory::GetInstance().Create(space, 1000, 700, 1));
 }
 
 void Game::generateEnnemies()
@@ -30,6 +32,16 @@ void Game::generateEnnemies()
     if (isRunning()) {
         if (_clock.getElapsedTime().asSeconds() > 2) {
             space.addEnnemies(2);
+            _clock.restart().asSeconds();
+        }
+    }
+}
+
+void Game::generateBonuses()
+{
+    if (isRunning()) {
+        if (_clock.getElapsedTime().asSeconds() > 2) {
+            space.addBonuses(2);
             _clock.restart().asSeconds();
         }
     }

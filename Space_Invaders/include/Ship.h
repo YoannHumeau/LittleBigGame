@@ -16,9 +16,10 @@ class Ship : public PhysicalElement
         explicit Ship(Space& p_space, std::string_view path = "ressources/ship.png");
 
         // virtual void display(sf::RenderWindow& window) const override;
-        virtual void crashReaction(ElementType otherType) override;
+        virtual void crashReaction(SpaceElement& other) override;
 
         virtual void attack(void);
+        int life{1};
 
     protected:
         virtual void update(float time) override;
@@ -32,7 +33,6 @@ class Ship : public PhysicalElement
         Space& space;
         sf::Clock lastShoot{};
 
-        int life{1};
         float ACCELERATION;
 };
 

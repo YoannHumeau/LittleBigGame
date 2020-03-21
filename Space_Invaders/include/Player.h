@@ -20,7 +20,7 @@ class Player: public Ship
 
     public:
         explicit Player(Game& p_game, Space& p_space);
-        virtual void crashReaction(ElementType otherType) override;
+        virtual void crashReaction(SpaceElement& other) override;
 };
 
 #endif
