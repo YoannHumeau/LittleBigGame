@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "font.h"
 #include "Ennemy.h"
+#include "Background.h"
 
 Game::Game(Space &p_space):
 space{p_space}
@@ -19,6 +20,7 @@ space{p_space}
 void Game::startGame()
 {
     running = true;
+    space.add(std::make_unique<Background>());
     space.add(std::make_unique<Player>(*this, space));
 }
 
@@ -26,7 +28,7 @@ void Game::generateEnnemies()
 {
     if (isRunning()) {
         if (_clock.getElapsedTime().asSeconds() > 2) {
-            space.addEnnemies(4);
+            space.addEnnemies(3);
             _clock.restart().asSeconds();
         }
     }

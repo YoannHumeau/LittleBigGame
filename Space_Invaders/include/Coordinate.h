@@ -18,14 +18,11 @@ class Coordinate
         void operator+= (Vecteur const& vecteur);
         float calculateDistance(Coordinate const& other) const;
 
-    private:
-        void recalculate();
-
-        float x{widthSpace/6.f};
-        float y{heightSpace/2.f};
-
         static int widthSpace;
         static int heightSpace;
+        
+        float x{0};
+        float y{0};
 };
 
 #endif // COORDINATE_H

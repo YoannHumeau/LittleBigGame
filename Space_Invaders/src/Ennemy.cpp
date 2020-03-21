@@ -32,6 +32,7 @@ void Ennemy::update(float time) {
             speed += {ACCELERATION * time, 0.f};
         }
         speed -= speed * COEF_FROTTEMENTS * time;
+        destructOutOfScreen();
     }
 }
 
