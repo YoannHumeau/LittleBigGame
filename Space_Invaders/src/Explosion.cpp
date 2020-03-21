@@ -21,7 +21,12 @@ void Explosion::update(float time) {
     }
  }
 
-void Explosion::crashReaction(ElementType otherType) {
-    if (otherType == type)
-        std::cout << "ok" << std::endl;
+void Explosion::crashTest(SpaceElement& other) {
+    if (other.type == other.type)
+        return;
 }
+
+// void Explosion::crashReaction(ElementType otherType) {
+//     if (otherType == type)
+//         std::cout << "ok" << std::endl;
+// }

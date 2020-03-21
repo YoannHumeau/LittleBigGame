@@ -2,7 +2,7 @@
 
 
 Bullet::Bullet(Coordinate const& p_position) :
-SpaceElement("ressources/missile.png")
+PhysicalElement("ressources/missile.png")
 {
     position = p_position;
     speed = Vecteur{VITESSE, 0.1f};

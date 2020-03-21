@@ -15,9 +15,9 @@ void SpaceElement::actualize(float time) {
     sprite.setPosition(position.getX(), position.getY());
 }
 
-void SpaceElement::update(float time) {
-    time = time + 0;
-}
+// void SpaceElement::update(float time) {
+//     time = time + 0;
+// }
 
 void SpaceElement::display(sf::RenderWindow& window) const {
     window.draw(sprite);
@@ -27,9 +27,9 @@ float SpaceElement::getRadius() const {
    return sprite.getLocalBounds().height / 2.f;
 }
 
-void SpaceElement::crashTest(SpaceElement& other) {
-    auto distance = position.calculateDistance(other.position);
-    if (distance < getRadius() + other.getRadius()) {
-        crashReaction(other.type);
-    }
-}
+// void SpaceElement::crashTest(SpaceElement& other) {
+//     auto distance = position.calculateDistance(other.position);
+//     if (distance < getRadius() + other.getRadius()) {
+//         crashReaction(other.type);
+//     }
+// }

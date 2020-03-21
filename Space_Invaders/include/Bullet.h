@@ -2,12 +2,12 @@
 #define BULLET_H
 
 #include "Coordinate.h"
-#include "SpaceElement.h"
+#include "PhysicalElement.h"
 #include "Vecteur.h"
 #include <SFML/Audio.hpp>
 #include "ResourceManager.h"
 
-class Bullet: public SpaceElement
+class Bullet: public PhysicalElement
 {
     private:
         static constexpr float VITESSE{2000.f};

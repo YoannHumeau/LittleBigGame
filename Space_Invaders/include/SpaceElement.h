@@ -19,24 +19,28 @@ class SpaceElement: public Resource
         virtual ~SpaceElement() = default;
 
         float getRadius() const;
-        void crashTest(SpaceElement& other);
+        // void crashTest(SpaceElement& other);
         void actualize(float time);
         void operator=(SpaceElement const& other) = delete;
 
         virtual void display(sf::RenderWindow& window) const;
-        virtual void crashReaction(ElementType otherType) = 0;
+        // virtual void crashReaction(ElementType otherType) = 0;
+        virtual void crashTest(SpaceElement& other) = 0;
 
         static inline bool isDestruct(std::unique_ptr<SpaceElement>& element) {return element->destruct;};
 
-    protected:
-        bool destruct{false};
 
-        Resource resource{};
         Coordinate position{};
-        Vecteur speed{0.f, 0.f};
         ElementType type{ElementType::OTHER};
 
-        virtual void update(float time);
+    protected:
+        bool destruct{false};
+        float ACCELERATION{100.f};
+
+        Resource resource{};
+        Vecteur speed{0.f, 0.f};
+
+        virtual void update(float time) = 0;
 };
 
 #endif // SPACEELEMENT_H

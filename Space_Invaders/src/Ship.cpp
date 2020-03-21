@@ -3,7 +3,7 @@
 #include <iostream>
 
 Ship::Ship(/*Game& p_game, */Space& p_space, std::string_view path):
-SpaceElement(path),
+PhysicalElement(path),
 // game{p_game},
 space{p_space} {
     // type = ElementType::SHIP;
