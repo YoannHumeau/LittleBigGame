@@ -9,9 +9,9 @@ SpaceElement("ressources/map3.png")
     ACCELERATION = 2.f;
 }
 
-void Background::crashReaction(ElementType otherType) {
-    if (otherType != ElementType::OTHER)
-        std::cout << "ok" << std::endl;
+void Background::crashTest(SpaceElement& other) {
+    if (other.type == other.type)
+		return;
 }
 
 void Background::update(float time) {

@@ -9,7 +9,7 @@ class Background: public SpaceElement
         Background();
 
         virtual void update(float time) override;
-        virtual void crashReaction(ElementType otherType) override;
+        virtual void crashTest(SpaceElement& other) override;
 
     private:
     	float ACCELERATION;
