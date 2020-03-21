@@ -23,6 +23,8 @@ class SpaceElement: public Resource
         void actualize(float time);
         void operator=(SpaceElement const& other) = delete;
         void screenLimit(void);
+        void destructOutOfScreen(void);
+        // void backgroundLimit(void);
 
         virtual void display(sf::RenderWindow& window) const;
         virtual void crashReaction(ElementType otherType) = 0;

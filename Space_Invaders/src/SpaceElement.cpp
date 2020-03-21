@@ -34,7 +34,25 @@ void SpaceElement::screenLimit()
     while (position.y < (0 + halfSpriteY)) {position.y = (0 + halfSpriteY);}
 }
 
-// TODO Rajouter fonction outOfScreen
+void SpaceElement::destructOutOfScreen()
+{
+    auto halfSpriteX = sprite.getLocalBounds().width / 2.f;
+    auto halfSpriteY = sprite.getLocalBounds().height / 2.f;
+
+    while (position.x > (position.widthSpace + halfSpriteX)) {destruct = true;}
+    while (position.x < (0 - halfSpriteX)) {destruct = true;}
+    while (position.y > (position.heightSpace + halfSpriteY)) {destruct = true;}
+    while (position.y < (0 - halfSpriteY)) {destruct = true;}
+}
+
+// void SpaceElement::backgroundLimit()
+// {
+//     auto halfSpriteX = sprite.getLocalBounds().width / 2.f;
+
+//     while (position.x > (position.widthSpace - halfSpriteX)) {
+//         position.x = (position.widthSpace - halfSpriteX);
+//     }
+// }
 
 float SpaceElement::getRadius() const {
    return sprite.getLocalBounds().height / 2.f;
