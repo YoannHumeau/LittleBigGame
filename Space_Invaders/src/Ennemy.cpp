@@ -37,8 +37,7 @@ void Ennemy::update(float time) {
 }
 
 void Ennemy::crashReaction(ElementType otherType) {
-
-    if (otherType == ElementType::BULLET || otherType == ElementType::PLAYER) {
+    if (otherType == ElementType::BULLET) {
         destruct = true;
         space.add(std::make_unique<Explosion>(position));
     }

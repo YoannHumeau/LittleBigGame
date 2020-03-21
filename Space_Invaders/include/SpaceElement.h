@@ -40,6 +40,7 @@ class SpaceElement: public Resource
     protected:
         bool destruct{false};
         float ACCELERATION{100.f};
+        float marge{50.f};
 
         Resource resource{};
         Vecteur speed{0.f, 0.f};

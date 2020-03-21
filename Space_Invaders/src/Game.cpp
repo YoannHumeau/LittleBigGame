@@ -43,9 +43,9 @@ void Game::endGame()
 
 void Game::display(sf::RenderWindow& window) const
 {
-    if (!running && space.isEmpty()) {
+    if (!running && space.isEmpty())
         window.draw(homeSprite);
-    }
+
     if (textException)
         window.draw(*textException);
 }
@@ -57,3 +57,26 @@ void Game::initException(std::exception const& exception)
     textException->setString(exception.what());
     textException->setFillColor(sf::Color::Red);
 }
+
+void Game::updateFps()
+{
+    fpsCount++;
+    if (fpsInterval.getElapsedTime().asSeconds() > 1) {
+        fps = fpsCount;
+        fpsCount = 0;
+        fpsInterval.restart().asSeconds();
+        std::cout << "Fps: " << getFps() << '\n';
+    }
+}
+
+
+unsigned int Game::getFps() const
+{
+    return fps;
+}
+
+// void Game::processInput()
+// {
+//     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F12))
+//         std::cout << "Fps: " << getFps() << '\n';
+// }

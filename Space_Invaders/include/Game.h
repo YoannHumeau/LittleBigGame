@@ -20,6 +20,10 @@ class Game: public std::exception
         sf::Font font;
         std::unique_ptr<sf::Text> textException;
 
+        unsigned int fps;
+        unsigned int fpsCount;
+        sf::Clock fpsInterval{};
+
     public:
         Game(Space&);
 
@@ -31,6 +35,10 @@ class Game: public std::exception
         void endGame();
         void display(sf::RenderWindow&) const;
         void initException(std::exception const&);
+
+        void updateFps(void);
+        unsigned int getFps(void) const;
+        // void processInput(void);
 };
 
 #endif

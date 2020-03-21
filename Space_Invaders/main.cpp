@@ -31,6 +31,7 @@ int main()
             space.actualized();
             space.manageCrash();
 
+            game.updateFps();
             window.clear();
             space.display(window);
             game.display(window);
