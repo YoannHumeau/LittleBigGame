@@ -4,6 +4,8 @@ Player::Player(Game& p_game, Space& p_space):
 Ship(p_space, "ressources/ship.png"),
 game{p_game}
 {
+    position.x = 1024/6.f;
+    position.y = 768/2.f;
     type = ElementType::PLAYER;
     life = 2;
 }
@@ -34,6 +36,7 @@ void Player::update(float time) {
             speed += {ACCELERATION * time, 0.f};
         }
         speed -= speed * COEF_FROTTEMENTS * time;
+        screenLimit();
     }
 }
 

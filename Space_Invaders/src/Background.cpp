@@ -4,9 +4,9 @@ Background::Background():
 SpaceElement("ressources/map3.png")
 {
 	sprite.setOrigin(0, 0);
-	sprite.setPosition(0, 0);
+	// sprite.setPosition(0, 0);
     type = ElementType::OTHER;
-    ACCELERATION = 20.f;
+    ACCELERATION = 2.f;
 }
 
 void Background::crashReaction(ElementType otherType) {

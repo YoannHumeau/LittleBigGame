@@ -22,6 +22,7 @@ class SpaceElement: public Resource
         void crashTest(SpaceElement& other);
         void actualize(float time);
         void operator=(SpaceElement const& other) = delete;
+        void screenLimit(void);
 
         virtual void display(sf::RenderWindow& window) const;
         virtual void crashReaction(ElementType otherType) = 0;
