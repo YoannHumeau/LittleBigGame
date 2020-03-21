@@ -22,7 +22,7 @@ void Explosion::update(float time) {
  }
 
 void Explosion::crashTest(SpaceElement& other) {
-    if (other.type == other.type)
+    if (other.type == type)
         return;
 }
 

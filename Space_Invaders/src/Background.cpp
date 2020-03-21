@@ -10,7 +10,7 @@ SpaceElement("ressources/map3.png")
 }
 
 void Background::crashTest(SpaceElement& other) {
-    if (other.type == other.type)
+    if (other.type == type)
 		return;
 }
 
