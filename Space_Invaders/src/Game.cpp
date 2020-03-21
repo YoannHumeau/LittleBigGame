@@ -29,7 +29,7 @@ void Game::generateEnnemies()
 {
     if (isRunning()) {
         if (_clock.getElapsedTime().asSeconds() > 2) {
-            space.addEnnemies(3);
+            space.addEnnemies(2);
             _clock.restart().asSeconds();
         }
     }

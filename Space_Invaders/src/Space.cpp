@@ -16,9 +16,7 @@ void Space::addEnnemies(int nbEnnemies)
     // int y = 150;
     // for (int i = 1; i <= nbEnnemies; i++)
     //     add(EnnemyFactory::GetInstance().Create(*this, 1000, y*i, i));
-    
-    // TODO FOR TEST
-    add(EnnemyFactory::GetInstance().Create(*this, 1000, 350, nbEnnemies));
+        add(EnnemyFactory::GetInstance().Create(*this, 1000, 400, nbEnnemies));
 }
 
 void Space::actualized() {
