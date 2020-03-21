@@ -40,11 +40,12 @@ void SpaceElement::destructOutOfScreen()
     auto halfSpriteY = sprite.getLocalBounds().height / 2.f;
 
     // std::cout << "destruct :: " << destruct << std::endl;
-
-    while (position.x > (position.widthSpace + halfSpriteX)) {destruct = true; std::cout << "destruct droite :: " << destruct << std::endl;}
-    while (position.x < (0 - halfSpriteX)) {destruct = true; std::cout << "destruct gauche  :: " << destruct << std::endl;}
-    while (position.y > (position.heightSpace + halfSpriteY)) {destruct = true; std::cout << "destruct haut :: " << destruct << std::endl;}
-    while (position.y < (0 - halfSpriteY)) {destruct = true; std::cout << "destruct bas :: " << destruct << std::endl;}
+    if (!destruct) {
+        if (position.x > (position.widthSpace + halfSpriteX)) {destruct = true; std::cout << "destruct droite :: " << destruct << std::endl;}
+        if (position.x < (0 - halfSpriteX)) {destruct = true; std::cout << "destruct gauche  :: " << destruct << std::endl;}
+        if (position.y > (position.heightSpace + halfSpriteY)) {destruct = true; std::cout << "destruct haut :: " << destruct << std::endl;}
+        if (position.y < (0 - halfSpriteY)) {destruct = true; std::cout << "destruct bas :: " << destruct << std::endl;}
+    }
 }
 
 // void SpaceElement::backgroundLimit()
