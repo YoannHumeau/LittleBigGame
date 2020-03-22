@@ -1,4 +1,6 @@
 #include "Player.h"
+#include <stdio.h>
+#include "Bonus.h"
 
 Player::Player(Game& p_game, Space& p_space):
 Ship(p_space, "ressources/ship.png"),
@@ -42,10 +44,10 @@ void Player::update(float time) {
 }
 
 // TODO : implémenter l'observer pour détruire l'ennemi qui entre en collision avec le player
-void Player::crashReaction(ElementType otherType) {
+void Player::crashReaction(SpaceElement& other) {
 
     // if (element.getElementType() == ElementType::ENNEMY) {
-    if (otherType == ElementType::ENNEMY) {
+    if (other.type == ElementType::ENNEMY) {
         std::cout << " SHIP SHIELD : " << shield << std::endl;
         if (shield > 0) {
             // Destroy the ennemy
@@ -68,10 +70,15 @@ void Player::crashReaction(ElementType otherType) {
                 space.add(std::make_unique<Explosion>(position));
             }
         }
-    // } else if (otherType == ElementType::BONUS) {
+    // } else if (other == ElementType::BONUS) {
     //     std::cout << "Consumed bonus" << std::endl;
     //     // element->consume(this);
-    // } else if (otherType == ElementType::WEAPON) {
+    // } else if (other == ElementType::WEAPON) {
     //     this->weapon = "weapon on";
+    }
+
+    if (other.type == ElementType::BONUS)
+    {
+        std::cout << "Bonus Detection " << std::endl;
     }
 }

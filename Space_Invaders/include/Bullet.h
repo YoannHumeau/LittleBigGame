@@ -13,7 +13,7 @@ class Bullet: public PhysicalElement
         static constexpr float VITESSE{2000.f};
     public:
         Bullet(Coordinate const& p_position);
-        virtual void crashReaction(ElementType otherType) override;
+        virtual void crashReaction(SpaceElement& other) override;
 };
 
 #endif

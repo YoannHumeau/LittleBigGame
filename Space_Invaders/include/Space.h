@@ -12,6 +12,7 @@ class Space
 
         void add(std::unique_ptr<SpaceElement> element);
         void addEnnemies(int nbEnnemies);
+        void addBonuses(int nbBonuses);
 
         void actualized();
         void manageCrash();

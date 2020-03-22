@@ -1,5 +1,6 @@
 #include "Space.h"
 #include "EnnemyFactory.h"
+#include "BonusFactory.h"
 #include "TimeManager.h"
 
 Space::Space()
@@ -17,6 +18,10 @@ void Space::addEnnemies(int nbEnnemies)
     // for (int i = 1; i <= nbEnnemies; i++)
     //     add(EnnemyFactory::GetInstance().Create(*this, 1000, y*i, i));
         add(EnnemyFactory::GetInstance().Create(*this, 1000, 400, nbEnnemies));
+}
+
+void Space::addBonuses(int nbBonuses) {
+    add(BonusFactory::GetInstance().Create(*this, 1000, 700, nbBonuses));
 }
 
 void Space::actualized() {

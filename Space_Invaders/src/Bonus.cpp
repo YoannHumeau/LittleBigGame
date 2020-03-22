@@ -1,22 +1,22 @@
-#include "Ennemy.h"
+#include "Bonus.h"
 
-Ennemy::Ennemy(Space& p_space, float x, float y, std::string_view path):
+Bonus::Bonus(Space& p_space, float x, float y, std::string_view path):
 Ship(p_space, path)
 {
     position = Coordinate{x, y};
-    type = ElementType::ENNEMY;
+    type = ElementType::BONUS;
 }
 
-Ennemy::~Ennemy() {}
+Bonus::~Bonus() {}
 
-void Ennemy::actualiseState() {
+void Bonus::actualiseState() {
     if (!destruct) {
         beingAcceleratedLeft = true;
         // attack();
     }
 }
 
-void Ennemy::update(float time) {
+void Bonus::update(float time) {
     actualiseState();
     if (!destruct) {
         if (beingAcceleratedFront) {
@@ -36,9 +36,9 @@ void Ennemy::update(float time) {
     }
 }
 
-void Ennemy::crashReaction(SpaceElement& other) {
-
-    if (other.type == ElementType::BULLET || other.type == ElementType::PLAYER) {
+void Bonus::crashReaction(SpaceElement& other) {
+    // Detect if Bonus is owned by player
+    if (other.type == ElementType::PLAYER) {
         destruct = true;
         space.add(std::make_unique<Explosion>(position));
     }

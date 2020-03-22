@@ -6,6 +6,7 @@
 #include <memory>
 #include <exception>
 #include "EnnemyFactory.h"
+#include "BonusFactory.h"
 
 class Game: public std::exception
 {
@@ -28,6 +29,7 @@ class Game: public std::exception
         void addPoints(int);
         void startGame();
         void generateEnnemies();
+        void generateBonuses();
         void endGame();
         void display(sf::RenderWindow&) const;
         void initException(std::exception const&);

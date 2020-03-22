@@ -45,9 +45,9 @@ void Ship::update(float time) {
     }
 }
 
-void Ship::crashReaction(ElementType otherType) {
+void Ship::crashReaction(SpaceElement& other) {
 
-    if (otherType == ElementType::ENNEMY) {
+    if (other.type == ElementType::ENNEMY) {
         destruct = true;
         // space.add(std::make_unique<Explosion>(position));
         // game.endGame();

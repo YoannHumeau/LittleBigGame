@@ -10,7 +10,7 @@ class Ennemy: public Ship
     public:
         explicit Ennemy(Space& p_space, float x, float y, std::string_view path);
         ~Ennemy() = 0;
-        virtual void crashReaction(ElementType otherType) override;
+        virtual void crashReaction(SpaceElement& other) override;
         
     protected:
 
