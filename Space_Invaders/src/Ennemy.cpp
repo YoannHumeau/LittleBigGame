@@ -12,25 +12,13 @@ Ennemy::~Ennemy() {}
 void Ennemy::actualiseState() {
     if (!destruct) {
         beingAcceleratedLeft = true;
-        // attack();
     }
 }
 
 void Ennemy::update(float time) {
     actualiseState();
     if (!destruct) {
-        if (beingAcceleratedFront) {
-            speed += {0.f, -ACCELERATION * time};
-        }
-        if (beingAcceleratedBack) {
-            speed += {0.f, ACCELERATION * time};
-        }
-        if (beingAcceleratedLeft) {
-            speed += {-ACCELERATION * time, 0.f};
-        }
-        if (beingAcceleratedRight) {
-            speed += {ACCELERATION * time, 0.f};
-        }
+        speed += {-ACCELERATION * time, 0.f};
         speed -= speed * COEF_FROTTEMENTS * time;
         destructOutOfScreen();
     }
