@@ -1,6 +1,8 @@
 #include "Player.h"
 #include <stdio.h>
 #include "Bonus.h"
+#include "DoublePistol.h"
+#include "Laser.h"
 
 Player::Player(Game& p_game, Space& p_space):
 Ship(p_space, "ressources/ship.png"),
@@ -18,7 +20,8 @@ void Player::actualiseState() {
         beingAcceleratedBack = sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S);
         beingAcceleratedLeft = sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Q);
         beingAcceleratedRight = sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D);
-        attack();
+
+        weapon->attack(space, position);
     }
 }
 
@@ -79,6 +82,7 @@ void Player::crashReaction(SpaceElement& other) {
 
     if (other.type == ElementType::BONUS)
     {
+        weapon = std::make_unique<Laser>();
         std::cout << "Bonus Detection " << std::endl;
     }
 }

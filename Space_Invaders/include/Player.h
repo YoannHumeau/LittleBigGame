@@ -15,8 +15,6 @@ class Player: public Ship
         static constexpr float ACCELERATION{700.f};
 
         Game& game;
-        std::string weapon;
-        // Weapon& weapon;
 
     public:
         explicit Player(Game& p_game, Space& p_space);
