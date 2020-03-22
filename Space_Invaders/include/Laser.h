@@ -1,14 +1,14 @@
-#ifndef PISTOL_H
-#define PISTOL_H
+#ifndef LASER_H
+#define LASER_H
 
 #include "Weapon.h"
 
-class Pistol: public Weapon
+class Laser: public Weapon
 {
 
     public:
-        Pistol();
-        ~Pistol();
+        Laser();
+        ~Laser();
         
         virtual void attack(Space& space, Coordinate position) override;
 

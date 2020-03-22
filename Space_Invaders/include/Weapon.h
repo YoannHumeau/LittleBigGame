@@ -11,7 +11,7 @@ class Weapon
 
         // Weapon();
         // virtual ~Weapon();
-        // virtual ~Weapon() = 0;
+        virtual ~Weapon() = 0;
 
         virtual void attack(Space& space, Coordinate position);
 

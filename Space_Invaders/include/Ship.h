@@ -31,7 +31,8 @@ class Ship : public PhysicalElement
         bool beingAcceleratedRight{false};
         // Game& game;
 
-        Weapon weapon{};
+        std::unique_ptr<Weapon> weapon;
+        // Weapon* weapon;
         Space& space;
         sf::Clock lastShoot{};
 
