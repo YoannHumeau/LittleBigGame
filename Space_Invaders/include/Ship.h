@@ -9,6 +9,7 @@
 #include "Space.h"
 #include "Bullet.h"
 #include "Game.h"
+#include "Weapon.h"
 
 class Ship : public PhysicalElement
 {
@@ -18,7 +19,6 @@ class Ship : public PhysicalElement
         // virtual void display(sf::RenderWindow& window) const override;
         virtual void crashReaction(SpaceElement& other) override;
 
-        virtual void attack(void);
         int life{1};
 
     protected:
@@ -30,6 +30,8 @@ class Ship : public PhysicalElement
         bool beingAcceleratedLeft{false};
         bool beingAcceleratedRight{false};
         // Game& game;
+
+        Weapon weapon{};
         Space& space;
         sf::Clock lastShoot{};
 
