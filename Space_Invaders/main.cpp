@@ -15,6 +15,8 @@ int main()
     Coordinate::initialiserEspace(WINDOW_WITH, WINDOW_HEIGHT);
     auto space = Space{};
     auto game = Game{space};
+
+    window.setFramerateLimit(60);
  
     while(window.isOpen()) {
         try {

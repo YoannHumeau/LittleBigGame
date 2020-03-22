@@ -19,6 +19,7 @@ class Game: public std::exception
         sf::Sprite homeSprite;
         sf::Font font;
         std::unique_ptr<sf::Text> textException;
+        std::unique_ptr<sf::Text> textFPS;
 
         unsigned int fps;
         unsigned int fpsCount;
@@ -38,7 +39,7 @@ class Game: public std::exception
 
         void updateFps(void);
         unsigned int getFps(void) const;
-        // void processInput(void);
+        void displayFps(void);
 };
 
 #endif
