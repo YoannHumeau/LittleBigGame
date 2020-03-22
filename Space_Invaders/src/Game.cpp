@@ -57,11 +57,14 @@ void Game::endGame()
 
 void Game::display(sf::RenderWindow& window) const
 {
-    if (!running && space.isEmpty()) {
+    if (!running && space.isEmpty())
         window.draw(homeSprite);
-    }
+
     if (textException)
         window.draw(*textException);
+
+    if (textFPS)
+        window.draw(*textFPS);
 }
 
 void Game::initException(std::exception const& exception)
@@ -70,4 +73,38 @@ void Game::initException(std::exception const& exception)
     textException->setFont(font);
     textException->setString(exception.what());
     textException->setFillColor(sf::Color::Red);
+}
+
+void Game::updateFps()
+{
+    fpsCount++;
+    if (fpsInterval.getElapsedTime().asMilliseconds() > 1000) {
+        fps = fpsCount;
+        fpsCount = 0;
+        fpsInterval.restart().asMilliseconds();
+        std::cout << "Fps: " << getFps() << '\n'; 
+    }
+}
+
+
+unsigned int Game::getFps() const
+{
+    return fps;
+}
+
+
+void Game::displayFps(void)
+{
+    std::string title = "Fps: ";
+    unsigned int numberFps = getFps();
+    std::string result;
+    result = title + std::to_string(numberFps);
+
+    textFPS = std::make_unique<sf::Text>();
+    textFPS->setFont(font);
+    textFPS->setString(result);
+    textFPS->setCharacterSize(18);
+    textFPS->setFillColor(sf::Color::White);
+    textFPS->setStyle(sf::Text::Bold | sf::Text::Underlined);
+    textFPS->setOrigin(0, 0);
 }

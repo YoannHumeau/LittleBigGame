@@ -31,7 +31,7 @@ void SpaceElement::screenLimit()
     while (position.x > (position.widthSpace - halfSpriteX)) {position.x = (position.widthSpace - halfSpriteX);}
     while (position.x < (0 + halfSpriteX)) {position.x = (0 + halfSpriteX);}
     while (position.y > (position.heightSpace - halfSpriteY)) {position.y = (position.heightSpace - halfSpriteY);}
-    while (position.y < (0 + halfSpriteY)) {position.y = (0 + halfSpriteY);}
+    while (position.y < (0 + halfSpriteY + marge)) {position.y = (0 + halfSpriteY + marge);}
 }
 
 void SpaceElement::destructOutOfScreen()

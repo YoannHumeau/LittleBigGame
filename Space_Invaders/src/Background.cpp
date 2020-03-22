@@ -3,7 +3,7 @@
 Background::Background():
 SpaceElement("ressources/map3.png")
 {
-    sprite.setOrigin(0, -50);
+    sprite.setOrigin(0, -marge);
     // sprite.setPosition(0, 0);
     type = ElementType::OTHER;
     ACCELERATION = 2.f;
