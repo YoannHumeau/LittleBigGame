@@ -7,6 +7,6 @@ Bonus(p_space, x, y, "ressources/ennemy9.png")
     ACCELERATION = 400.f;
 }
 
-void BonusLife::consumeBonus(Player& player) {
-    player.life += 1;
-}
+// void BonusLife::consumeBonus(Player& player) {
+//     player.life += 1;
+// }

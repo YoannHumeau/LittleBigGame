@@ -12,8 +12,8 @@ PhysicalElement("ressources/missile.png")
     sound.play();
 } 
 
-void Bullet::crashReaction(ElementType otherType)
+void Bullet::crashReaction(SpaceElement& other)
 {
-    if (otherType == ElementType::ENNEMY || otherType == ElementType::BULLET)
+    if (other.type == ElementType::ENNEMY || other.type == ElementType::BULLET)
         destruct = true;
 }

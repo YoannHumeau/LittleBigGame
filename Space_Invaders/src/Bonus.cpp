@@ -36,9 +36,9 @@ void Bonus::update(float time) {
     }
 }
 
-void Bonus::crashReaction(ElementType otherType) {
+void Bonus::crashReaction(SpaceElement& other) {
     // Detect if Bonus is owned by player
-    if (otherType == ElementType::PLAYER) {
+    if (other.type == ElementType::PLAYER) {
         destruct = true;
         space.add(std::make_unique<Explosion>(position));
     }

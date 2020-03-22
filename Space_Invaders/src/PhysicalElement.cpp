@@ -10,6 +10,6 @@ void PhysicalElement::update(float time) {
 void PhysicalElement::crashTest(SpaceElement& other) {
     auto distance = position.calculateDistance(other.position);
     if (distance < getRadius() + other.getRadius()) {
-        crashReaction(other.type);
+        crashReaction(other);
     }
 }

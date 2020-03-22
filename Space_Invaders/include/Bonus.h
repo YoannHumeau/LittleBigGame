@@ -11,8 +11,8 @@ class Bonus: public Ship
     public:
         explicit Bonus(Space& p_space, float x, float y, std::string_view path);
         ~Bonus() = 0;
-        virtual void crashReaction(ElementType otherType) override;
-        virtual void consumeBonus(Player& player);
+        virtual void crashReaction(SpaceElement& other) override;
+        //virtual void consumeBonus(Player& player) = 0;
 
     protected:
 
