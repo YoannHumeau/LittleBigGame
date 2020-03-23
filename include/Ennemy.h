@@ -16,8 +16,8 @@ class Ennemy: public Ship
 
         EnnemyType eType;
 
-        virtual void actualiseState() override;
-        virtual void update(float time) override;
+        // virtual void actualiseState() override;
+        // virtual void update(float time) override;
 };
 
 #endif

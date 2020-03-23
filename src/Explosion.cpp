@@ -25,8 +25,3 @@ void Explosion::crashTest(SpaceElement& other) {
     if (other.type == type)
         return;
 }
-
-// void Explosion::crashReaction(ElementType otherType) {
-//     if (otherType == type)
-//         std::cout << "ok" << std::endl;
-// }

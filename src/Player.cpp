@@ -29,18 +29,14 @@ void Player::actualiseState() {
 void Player::update(float time) {
     actualiseState();
     if (!destruct) {
-        if (beingAcceleratedFront) {
+        if (beingAcceleratedFront)
             speed += {0.f, -ACCELERATION * time};
-        }
-        if (beingAcceleratedBack) {
+        if (beingAcceleratedBack)
             speed += {0.f, ACCELERATION * time};
-        }
-        if (beingAcceleratedLeft) {
+        if (beingAcceleratedLeft)
             speed += {-ACCELERATION * time, 0.f};
-        }
-        if (beingAcceleratedRight) {
+        if (beingAcceleratedRight)
             speed += {ACCELERATION * time, 0.f};
-        }
         speed -= speed * COEF_FROTTEMENTS * time;
         screenLimit();
     }

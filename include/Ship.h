@@ -22,13 +22,14 @@ class Ship : public PhysicalElement
         int life{1};
 
     protected:
-        virtual void update(float time) override;
-        virtual void actualiseState();
-        static constexpr float COEF_FROTTEMENTS{2.f};
-        bool beingAcceleratedFront{false};
-        bool beingAcceleratedBack{false};
-        bool beingAcceleratedLeft{false};
-        bool beingAcceleratedRight{false};
+        // virtual void update(float time) override;
+        // virtual void update(float time) = 0;
+        // virtual void actualiseState() = 0;
+        // static constexpr float COEF_FROTTEMENTS{2.f};
+        // bool beingAcceleratedFront{false};
+        // bool beingAcceleratedBack{false};
+        // bool beingAcceleratedLeft{false};
+        // bool beingAcceleratedRight{false};
         // Game& game;
 
         std::unique_ptr<Weapon> weapon;

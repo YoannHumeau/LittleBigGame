@@ -6,13 +6,18 @@
 class Player: public Ship
 {
     private:
-        // int maxLife{3};
+
         int shield{1};
         // int maxShield{3};
-        virtual void actualiseState() override;
+        void actualiseState(void);
         virtual void update(float time) override;
 
         static constexpr float ACCELERATION{700.f};
+
+        bool beingAcceleratedFront{false};
+        bool beingAcceleratedBack{false};
+        bool beingAcceleratedLeft{false};
+        bool beingAcceleratedRight{false};
 
         Game& game;
 

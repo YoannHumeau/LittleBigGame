@@ -11,6 +11,7 @@ class PhysicalElement: public SpaceElement
         virtual void crashReaction(SpaceElement& other) = 0;
         virtual void update(float time) override;
         virtual void crashTest(SpaceElement& other) override;
+        static constexpr float COEF_FROTTEMENTS{2.f};
 
 };
 

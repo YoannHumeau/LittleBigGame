@@ -8,5 +8,5 @@ Bonus(p_space, x, y, "ressources/bonus_shield.png")
 }
 
 // void BonusLife::consumeBonus(Player& player) {
-//     player.life += 1;
+//     player.shield += 1;
 // }

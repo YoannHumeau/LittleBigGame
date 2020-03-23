@@ -8,9 +8,6 @@
 class Weapon
 {
     public:
-
-        // Weapon();
-        // virtual ~Weapon();
         virtual ~Weapon() = 0;
 
         virtual void attack(Space& space, Coordinate position);

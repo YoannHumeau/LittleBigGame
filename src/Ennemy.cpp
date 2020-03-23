@@ -9,20 +9,20 @@ Ship(p_space, path)
 
 Ennemy::~Ennemy() {}
 
-void Ennemy::actualiseState() {
-    if (!destruct) {
-        beingAcceleratedLeft = true;
-    }
-}
+// void Ennemy::actualiseState() {
+//     if (!destruct) {
+//         beingAcceleratedLeft = true;
+//     }
+// }
 
-void Ennemy::update(float time) {
-    actualiseState();
-    if (!destruct) {
-        speed += {-ACCELERATION * time, 0.f};
-        speed -= speed * COEF_FROTTEMENTS * time;
-        destructOutOfScreen();
-    }
-}
+// void Ennemy::update(float time) {
+//     actualiseState();
+//     if (!destruct) {
+//         speed += {-ACCELERATION * time, 0.f};
+//         speed -= speed * COEF_FROTTEMENTS * time;
+//         destructOutOfScreen();
+//     }
+// }
 
 void Ennemy::crashReaction(SpaceElement& other) {
 

@@ -15,18 +15,14 @@ void SpaceElement::actualize(float time) {
     sprite.setPosition(position.getX(), position.getY());
 }
 
-// void SpaceElement::update(float time) {
-//     time = time + 0;
-// }
-
 void SpaceElement::display(sf::RenderWindow& window) const {
     window.draw(sprite);
 }
 
 void SpaceElement::screenLimit()
 {
-    auto halfSpriteX = sprite.getLocalBounds().width / 2.f;
-    auto halfSpriteY = sprite.getLocalBounds().height / 2.f;
+    float halfSpriteX = sprite.getLocalBounds().width / 2.f;
+    float halfSpriteY = sprite.getLocalBounds().height / 2.f;
 
     while (position.x > (position.widthSpace - halfSpriteX)) {position.x = (position.widthSpace - halfSpriteX);}
     while (position.x < (0 + halfSpriteX)) {position.x = (0 + halfSpriteX);}
@@ -36,34 +32,17 @@ void SpaceElement::screenLimit()
 
 void SpaceElement::destructOutOfScreen()
 {
-    auto halfSpriteX = sprite.getLocalBounds().width / 2.f;
-    auto halfSpriteY = sprite.getLocalBounds().height / 2.f;
+    float halfSpriteX = sprite.getLocalBounds().width / 2.f;
+    float halfSpriteY = sprite.getLocalBounds().height / 2.f;
 
-    // std::cout << "destruct :: " << destruct << std::endl;
     if (!destruct) {
-        if (position.x > (position.widthSpace + halfSpriteX)) {destruct = true; std::cout << "destruct droite :: " << destruct << std::endl;}
-        if (position.x < (0 - halfSpriteX)) {destruct = true; std::cout << "destruct gauche  :: " << destruct << std::endl;}
-        if (position.y > (position.heightSpace + halfSpriteY)) {destruct = true; std::cout << "destruct haut :: " << destruct << std::endl;}
-        if (position.y < (0 - halfSpriteY)) {destruct = true; std::cout << "destruct bas :: " << destruct << std::endl;}
+        if (position.x > (position.widthSpace + halfSpriteX)) {destruct = true;}
+        if (position.x < (0 - halfSpriteX)) {destruct = true;}
+        if (position.y > (position.heightSpace + halfSpriteY)) {destruct = true;}
+        if (position.y < (0 - halfSpriteY)) {destruct = true;}
     }
 }
-
-// void SpaceElement::backgroundLimit()
-// {
-//     auto halfSpriteX = sprite.getLocalBounds().width / 2.f;
-
-//     while (position.x > (position.widthSpace - halfSpriteX)) {
-//         position.x = (position.widthSpace - halfSpriteX);
-//     }
-// }
 
 float SpaceElement::getRadius() const {
    return sprite.getLocalBounds().height / 2.f;
 }
-
-// void SpaceElement::crashTest(SpaceElement& other) {
-//     auto distance = position.calculateDistance(other.position);
-//     if (distance < getRadius() + other.getRadius()) {
-//         crashReaction(other.type);
-//     }
-// }
