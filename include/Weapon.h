@@ -8,9 +8,9 @@
 class Weapon
 {
     public:
-        virtual ~Weapon() = 0;
+        virtual ~Weapon() {};
 
-        virtual void attack(Space& space, Coordinate position);
+        virtual void attack(Space& space, Coordinate position) = 0;
 
     protected:
         sf::Clock lastShoot{};

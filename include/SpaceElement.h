@@ -29,7 +29,6 @@ class SpaceElement: public Resource
 
         static inline bool isDestruct(std::unique_ptr<SpaceElement>& element) {return element->destruct;};
 
-
         Coordinate position{};
         ElementType type{ElementType::OTHER};
 

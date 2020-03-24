@@ -16,28 +16,16 @@ class Ship : public PhysicalElement
     public:
         explicit Ship(Space& p_space, std::string_view path = "ressources/ship.png");
 
-        // virtual void display(sf::RenderWindow& window) const override;
-        virtual void crashReaction(SpaceElement& other) override;
-
         int life{1};
 
+        virtual void crashReaction(SpaceElement& other) override;
+
     protected:
-        // virtual void update(float time) override;
-        // virtual void update(float time) = 0;
-        // virtual void actualiseState() = 0;
-        // static constexpr float COEF_FROTTEMENTS{2.f};
-        // bool beingAcceleratedFront{false};
-        // bool beingAcceleratedBack{false};
-        // bool beingAcceleratedLeft{false};
-        // bool beingAcceleratedRight{false};
-        // Game& game;
+        float ACCELERATION;
 
         std::unique_ptr<Weapon> weapon;
-        // Weapon* weapon;
         Space& space;
         sf::Clock lastShoot{};
-
-        float ACCELERATION;
 };
 
 #endif // SHIP_H_INCLUDED

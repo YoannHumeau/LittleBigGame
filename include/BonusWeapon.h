@@ -7,7 +7,7 @@ class BonusWeapon: public Bonus
 {
     public:
         explicit BonusWeapon(Space& p_space, float x, float y);
-        //virtual void consumeBonus(Player& player) override;
+        // virtual void consumeBonus(Player& player) override;
 };
 
 #endif

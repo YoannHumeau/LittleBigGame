@@ -12,7 +12,6 @@ class EnnemyFactory
         ~EnnemyFactory();
         static EnnemyFactory _instance;
 
-        // std::unique_ptr<SpaceElement> ennemies[1] {std::unique_ptr<Cruiser>()};
         EnnemyFactory& operator= (const EnnemyFactory&){return this->_instance;}
         EnnemyFactory (const EnnemyFactory&){}
 

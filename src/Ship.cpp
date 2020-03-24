@@ -10,8 +10,6 @@ space{p_space} {
 }
 
 void Ship::crashReaction(SpaceElement& other) {
-
-    if (other.type == ElementType::ENNEMY) {
+    if (other.type == ElementType::ENNEMY)
         destruct = true;
-    }
 }
