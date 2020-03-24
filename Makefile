@@ -1,11 +1,11 @@
-SRC1		=	$(wildcard src/*.cpp src/utils/*.cpp)
+SRC1		=	$(wildcard src/*.cpp ./*.cpp) 
 
 OBJ1		=	$(SRC1:%.cpp=%.o)
 
 NAME1		=	game
 
 CXX			=	g++
-CXXFLAGS	=	-I. -Wall -pedantic -Wextra -Werror -std=c++17 -g
+CXXFLAGS	=	-Iinclude -Wall -pedantic -Wextra -Werror -std=c++17 -g
 LIBFLAGS	=	-lsfml-system -lsfml-graphics -lsfml-window -lsfml-audio
 
 RM			=	rm -f
@@ -13,7 +13,7 @@ RM			=	rm -f
 all:		$(NAME1) $(NAME2)
 
 $(NAME1):	$(OBJ1)
-			$(CXX) $(CXXFLAGS) $(LIBFLAGS) $(OBJ1) -o $(NAME1)
+			$(CXX) $(OBJ1) -o $(NAME1) $(CXXFLAGS) $(LIBFLAGS)
 clean:
 	$(RM)	$(OBJ1) 
 
