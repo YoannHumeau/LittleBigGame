@@ -34,8 +34,10 @@ void SpaceElement::destructOutOfScreen()
 {
     float halfSpriteX = sprite.getLocalBounds().width / 2.f;
 
-    if (!destruct)
+    if (!destruct) {
         if (position.x < (0 - halfSpriteX)) {destruct = true;}
+        if (position.x > (position.getWidthSpace() - halfSpriteX) && type == ElementType::BULLET) {destruct = true;}
+    }
 }
 
 float SpaceElement::getRadius() const {

@@ -47,6 +47,7 @@ void Player::crashReaction(SpaceElement& other) {
 
     // if (element.getElementType() == ElementType::ENNEMY) {
     if (other.type == ElementType::ENNEMY) {
+        other.crashTest(*this);
         std::cout << " SHIP SHIELD : " << shield << std::endl;
         if (shield > 0) {
             // Destroy the ennemy
