@@ -30,7 +30,6 @@ void Ennemy::crashReaction(SpaceElement& other) {
     if (other.type == ElementType::BULLET || other.type == ElementType::PLAYER) {
         destruct = true;
         space.add(std::make_unique<Explosion>(position));
-        //space.addBonuses(2);
         AskForBonus();
     }
 }
