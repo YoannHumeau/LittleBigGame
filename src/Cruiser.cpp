@@ -10,8 +10,8 @@ Ennemy(p_space, x, y, "ressources/ennemy2.png")
 
 void Cruiser::update(float time) {
     if (!destruct) {
-        test++;
-        float result = amplitude * cos(test * M_PI * frequency * time);
+        cpt++;
+        float result = amplitude * cos(cpt * M_PI * frequency * time);
         speed += {-ACCELERATION * time, result};
         speed -= speed * COEF_FROTTEMENTS * time;
         destructOutOfScreen();
