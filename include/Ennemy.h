@@ -18,6 +18,8 @@ class Ennemy: public Ship
 
         // virtual void actualiseState() override;
         // virtual void update(float time) override;
+    private:
+        void AskForBonus();
 };
 
 #endif

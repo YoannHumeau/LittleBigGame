@@ -12,7 +12,7 @@ class Bonus: public Ship
         explicit Bonus(Space& p_space, float x, float y, std::string_view path);
         ~Bonus() = 0;
         virtual void crashReaction(SpaceElement& other) override;
-        //virtual void consumeBonus(Player& player) = 0;
+        void AskForBonus();
 
     protected:
 
