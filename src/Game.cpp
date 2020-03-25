@@ -43,6 +43,7 @@ void Game::generateEnnemies()
             }
             std::cout << std::endl;
         }
+        lastGeneration = now;
     }
 }
 
