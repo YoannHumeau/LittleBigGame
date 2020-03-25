@@ -33,14 +33,9 @@ void SpaceElement::screenLimit()
 void SpaceElement::destructOutOfScreen()
 {
     float halfSpriteX = sprite.getLocalBounds().width / 2.f;
-    float halfSpriteY = sprite.getLocalBounds().height / 2.f;
 
-    if (!destruct) {
-        if (position.x > (position.widthSpace + halfSpriteX)) {destruct = true;}
+    if (!destruct)
         if (position.x < (0 - halfSpriteX)) {destruct = true;}
-        if (position.y > (position.heightSpace + halfSpriteY)) {destruct = true;}
-        if (position.y < (0 - halfSpriteY)) {destruct = true;}
-    }
 }
 
 float SpaceElement::getRadius() const {

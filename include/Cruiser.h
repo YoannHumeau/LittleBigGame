@@ -11,7 +11,7 @@ class Cruiser: public Ennemy
         virtual void update(float time) override;
     private:
         float cpt{1};
-        float amplitude{10};
+        float amplitude{20};
         float frequency{0.5};
 };
 
