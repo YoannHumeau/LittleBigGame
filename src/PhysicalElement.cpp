@@ -8,8 +8,8 @@ void PhysicalElement::update(float time) {
         speed += {-ACCELERATION * time, 0.f}; 
         if (type != ElementType:: BULLET) {
             speed -= speed * COEF_FROTTEMENTS * time;
-            destructOutOfScreen();
         }
+        destructOutOfScreen();
     }
 }
 
