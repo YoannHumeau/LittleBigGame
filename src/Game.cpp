@@ -23,7 +23,7 @@ space{p_space}
 void Game::startGame()
 {
     running = true;
-    _clock.restart().asSeconds();
+    _clock.restart();
     space.add(std::make_unique<Background>());
     space.add(std::make_unique<Player>(*this, space));
     
