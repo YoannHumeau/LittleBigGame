@@ -23,11 +23,9 @@ space{p_space}
 void Game::startGame()
 {
     running = true;
+    _clock.restart().asSeconds();
     space.add(std::make_unique<Background>());
     space.add(std::make_unique<Player>(*this, space));
-    //space.add(BonusFactory::GetInstance().Create(space, 1000, 500, 1));
-    //space.add(BonusFactory::GetInstance().Create(space, 1000, 600, 2));
-    //space.add(BonusFactory::GetInstance().Create(space, 1000, 700, 3));
     
     enm = EnnemyGeneration::GetEnnemiesToGenerate();
 }
@@ -45,7 +43,6 @@ void Game::generateEnnemies()
             }
             std::cout << std::endl;
         }
-        lastGeneration = now;
     }
 }
 
