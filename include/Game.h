@@ -7,6 +7,7 @@
 #include <exception>
 #include "EnnemyFactory.h"
 #include "BonusFactory.h"
+#include "EnnemyGeneration.h"
 
 class Game: public std::exception
 {
@@ -25,6 +26,9 @@ class Game: public std::exception
         unsigned int fps;
         unsigned int fpsCount;
         sf::Clock fpsInterval{};
+
+        std::map<int, std::list<EnnemyToGenerate>> enm;
+        int lastGeneration {0};
 
     public:
         Game(Space&);
