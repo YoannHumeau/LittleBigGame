@@ -6,6 +6,8 @@
 #include "Ennemy.h"
 #include "Bonus.h"
 #include "Background.h"
+#include "EnnemyGeneration.h"
+
 
 Game::Game(Space &p_space):
 space{p_space}
@@ -15,7 +17,7 @@ space{p_space}
         homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil.png"));
     } catch(std::exception const& exception) {
         initException(exception);
-    }
+    } 
 }
 
 void Game::startGame()
@@ -23,29 +25,37 @@ void Game::startGame()
     running = true;
     space.add(std::make_unique<Background>());
     space.add(std::make_unique<Player>(*this, space));
-    space.add(EnnemyFactory::GetInstance().Create(space, 1000, 150, 2));
-    space.add(BonusFactory::GetInstance().Create(space, 1000, 500, 1));
-    space.add(BonusFactory::GetInstance().Create(space, 1000, 600, 2));
-    space.add(BonusFactory::GetInstance().Create(space, 1000, 700, 3));
+    //space.add(BonusFactory::GetInstance().Create(space, 1000, 500, 1));
+    //space.add(BonusFactory::GetInstance().Create(space, 1000, 600, 2));
+    //space.add(BonusFactory::GetInstance().Create(space, 1000, 700, 3));
+    
+    enm = EnnemyGeneration::GetEnnemiesToGenerate();
 }
 
 void Game::generateEnnemies()
 {
     if (isRunning()) {
-        if (_clock.getElapsedTime().asSeconds() > 2) {
-            space.addEnnemies(2);
-            _clock.restart().asSeconds();
+        // for each second, we generate the ennemies
+        int now = _clock.getElapsedTime().asSeconds();
+        if (lastGeneration != now) {
+            std::cout << "LOG INFO : ";
+            for (std::list<EnnemyToGenerate>::const_iterator i = enm[now].begin(), end = enm[now].end(); i != end; ++i) {
+                std::cout << "Ennemy[" << i->ennemyType << "]atY[" << i->ypos << "]  ";
+                space.add(EnnemyFactory::GetInstance().Create(space, 1000, i->ypos, i->ennemyType));
+            }
+            std::cout << std::endl;
         }
+        lastGeneration = now;
     }
 }
 
 void Game::generateBonuses()
 {
     if (isRunning()) {
-        if (_clock.getElapsedTime().asSeconds() > 2) {
-            space.addBonuses(2);
-            _clock.restart().asSeconds();
-        }
+        // if (_clock.getElapsedTime().asSeconds() > 2) {
+        //     space.addBonuses(2);
+        //     _clock.restart().asSeconds();
+        // }
     }
 }
 

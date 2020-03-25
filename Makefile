@@ -6,7 +6,7 @@ NAME1		=	game
 
 CXX			=	g++
 CXXFLAGS	=	-Iinclude -Wall -pedantic -Wextra -Werror -std=c++17 -g
-LIBFLAGS	=	-lsfml-system -lsfml-graphics -lsfml-window -lsfml-audio
+LIBFLAGS	=	-lsfml-system -lsfml-graphics -lsfml-window -lsfml-audio -lpthread
 
 RM			=	rm -f
 

@@ -12,14 +12,6 @@ void Space::add(std::unique_ptr<SpaceElement> element) {
     toAdd.push_back(std::move(element));
 }
 
-void Space::addEnnemies(int nbEnnemies)
-{
-    // int y = 150;
-    // for (int i = 1; i <= nbEnnemies; i++)
-    //     add(EnnemyFactory::GetInstance().Create(*this, 1000, y*i, i));
-        add(EnnemyFactory::GetInstance().Create(*this, 1000, 400, nbEnnemies));
-}
-
 void Space::addBonuses(int nbBonuses) {
     add(BonusFactory::GetInstance().Create(*this, 1000, 700, nbBonuses));
 }
