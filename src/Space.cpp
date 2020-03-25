@@ -12,8 +12,8 @@ void Space::add(std::unique_ptr<SpaceElement> element) {
     toAdd.push_back(std::move(element));
 }
 
-void Space::addBonuses(int nbBonuses) {
-    add(BonusFactory::GetInstance().Create(*this, 1000, 700, nbBonuses));
+void Space::addBonuses(int nbBonuses, float xpos, float ypos) {
+    add(BonusFactory::GetInstance().Create(*this, (int)xpos, (int)ypos, nbBonuses));
 }
 
 void Space::actualized() {
