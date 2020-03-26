@@ -15,9 +15,9 @@ space{p_space}
     font.loadFromMemory(Air_Americana_ttf, Air_Americana_ttf_size);
     try {
         homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil.png"));
-        music.openFromFile("ressources/imperial_march.wav");
+        music.openFromFile("ressources/swtheme.wav");
         music.play();
-        music.setLoop(true);
+        // music.setLoop(true);
     } catch(std::exception const& exception) {
         initException(exception);
     } 
@@ -26,6 +26,15 @@ space{p_space}
 void Game::startGame()
 {
     running = true;
+    
+    try {
+        music.openFromFile("ressources/imperial_march.wav");
+        music.play();
+        music.setLoop(true);
+    } catch (std::exception const& exception) {
+        initException(exception);
+    }
+    
     _clock.restart();
     space.add(std::make_unique<Background>());
     space.add(std::make_unique<Player>(*this, space));
