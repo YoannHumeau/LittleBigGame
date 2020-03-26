@@ -19,6 +19,7 @@ class Game: public std::exception
 
         Space &space;
         sf::Sprite homeSprite;
+        sf::Music music;
         sf::Font font;
         std::unique_ptr<sf::Text> textException;
         std::unique_ptr<sf::Text> textFPS;
