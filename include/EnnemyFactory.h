@@ -3,6 +3,7 @@
 
 class Ennemy;
 
+#include "Game.h"
 #include "Space.h"
 
 class EnnemyFactory
@@ -17,7 +18,7 @@ class EnnemyFactory
 
     public:
         static EnnemyFactory& GetInstance(void);
-        std::unique_ptr<SpaceElement> Create(Space &space, float x, float y, int ennemyType);
+        std::unique_ptr<SpaceElement> Create(Game &p_game, Space &space, float x, float y, int ennemyType);
 };
 
 #endif

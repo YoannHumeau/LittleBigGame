@@ -7,12 +7,17 @@
 #include "Bonus.h"
 #include "Background.h"
 #include "EnnemyGeneration.h"
+#include <string>
 
+using namespace std::string_literals;
 
 Game::Game(Space &p_space):
 space{p_space}
 {
-    font.loadFromMemory(Air_Americana_ttf, Air_Americana_ttf_size);
+    if (!font.loadFromMemory(Air_Americana_ttf, Air_Americana_ttf_size))
+        throw std::runtime_error("Police introuvable");
+    textScore.setFont(font);
+
     try {
         homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil.png"));
         music.openFromFile("ressources/swtheme.wav");
@@ -36,6 +41,8 @@ void Game::startGame()
     }
     
     _clock.restart();
+    score = 0;
+    refreshScore();
     space.add(std::make_unique<Background>());
     space.add(std::make_unique<Player>(*this, space));
     
@@ -51,7 +58,7 @@ void Game::generateEnnemies()
             std::cout << "LOG INFO : ";
             for (std::list<EnnemyToGenerate>::const_iterator i = enm[now].begin(), end = enm[now].end(); i != end; ++i) {
                 std::cout << "Ennemy[" << i->ennemyType << "]atY[" << i->ypos << "]  ";
-                space.add(EnnemyFactory::GetInstance().Create(space, 1000, i->ypos, i->ennemyType));
+                space.add(EnnemyFactory::GetInstance().Create(*this, space, 1000, i->ypos, i->ennemyType));
             }
             std::cout << std::endl;
         }
@@ -80,6 +87,8 @@ void Game::display(sf::RenderWindow& window) const
 {
     if (!running && space.isEmpty())
         window.draw(homeSprite);
+    else
+        window.draw(textScore);
 
     if (textException)
         window.draw(*textException);
@@ -128,4 +137,15 @@ void Game::displayFps(void)
     textFPS->setFillColor(sf::Color::White);
     textFPS->setStyle(sf::Text::Bold | sf::Text::Underlined);
     textFPS->setOrigin(0, 0);
+}
+
+void Game::addPoints(int points)
+{
+    score += points;
+    refreshScore();
+}
+
+void Game::refreshScore()
+{
+    textScore.setString("Score :  "s + std::to_string(score));
 }

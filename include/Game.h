@@ -5,15 +5,18 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <exception>
-#include "EnnemyFactory.h"
-#include "BonusFactory.h"
+// #include "EnnemyFactory.h"
+// #include "BonusFactory.h"
 #include "EnnemyGeneration.h"
 
 class Game: public std::exception
 {
     private:
         bool running{false};
+
         int score{};
+        sf::Text textScore{};
+        void refreshScore(void);
 
         sf::Clock _clock{};
 
