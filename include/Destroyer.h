@@ -6,7 +6,7 @@
 class Destroyer: public Ennemy
 {
     public:
-        explicit Destroyer(Space& p_space, float x, float y);
+        explicit Destroyer(Game &p_game, Space& p_space, float x, float y);
 };
 
 #endif

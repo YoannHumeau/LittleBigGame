@@ -1,8 +1,9 @@
 #include "Ennemy.h"
 #include "Bonus.h"
 
-Ennemy::Ennemy(Space& p_space, float x, float y, std::string_view path):
-Ship(p_space, path)
+Ennemy::Ennemy(Game &p_game, Space& p_space, float x, float y, std::string_view path):
+Ship(p_space, path),
+game{p_game}
 {
     position = Coordinate{x, y};
     type = ElementType::ENNEMY;
@@ -28,6 +29,7 @@ Ennemy::~Ennemy() {}
 void Ennemy::crashReaction(SpaceElement& other) {
 
     if (other.type == ElementType::BULLET || other.type == ElementType::PLAYER) {
+        game.addPoints(sprite.getScale().x * 100);
         destruct = true;
         space.add(std::make_unique<Explosion>(position));
         AskForBonus();

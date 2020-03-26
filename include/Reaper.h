@@ -6,7 +6,7 @@
 class Reaper: public Ennemy
 {
     public:
-        explicit Reaper(Space& p_space, float x, float y);
+        explicit Reaper(Game &p_game, Space& p_space, float x, float y);
 };
 
 #endif

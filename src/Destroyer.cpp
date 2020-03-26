@@ -1,7 +1,7 @@
 #include "Destroyer.h"
 
-Destroyer::Destroyer(Space &p_space, float x, float y):
-Ennemy(p_space, x, y, "ressources/asteroide.png")
+Destroyer::Destroyer(Game &p_game, Space &p_space, float x, float y):
+Ennemy(p_game, p_space, x, y, "ressources/asteroide.png")
 {
     life = 5;
     eType = EnnemyType::DESTROYER;

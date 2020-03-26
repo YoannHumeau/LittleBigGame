@@ -7,7 +7,7 @@
 class Cruiser: public Ennemy
 {
     public:
-        explicit Cruiser(Space& p_space, float x, float y);
+        explicit Cruiser(Game &p_game, Space& p_space, float x, float y);
         virtual void update(float time) override;
     private:
         float cpt{1};

@@ -2,6 +2,7 @@
 #define PHYSICALELEMENT_H
 
 #include "SpaceElement.h"
+#include "EnnemyFactory.h"
 
 class PhysicalElement: public SpaceElement
 {

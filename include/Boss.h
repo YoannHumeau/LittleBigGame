@@ -6,7 +6,7 @@
 class Boss: public Ennemy
 {
     public:
-        explicit Boss(Space& p_space, float x, float y);
+        explicit Boss(Game &p_game, Space& p_space, float x, float y);
 };
 
 #endif
