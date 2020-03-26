@@ -17,6 +17,11 @@ space{p_space}
     if (!font.loadFromMemory(Air_Americana_ttf, Air_Americana_ttf_size))
         throw std::runtime_error("Police introuvable");
     textScore.setFont(font);
+    textBestScore.setFont(font);
+
+    textScore.move(0,30);
+
+    refreshBestScore();
 
     try {
         homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil.png"));
@@ -85,16 +90,17 @@ void Game::endGame()
 
 void Game::display(sf::RenderWindow& window) const
 {
-    if (!running && space.isEmpty())
-        window.draw(homeSprite);
-    else
-        window.draw(textScore);
-
     if (textException)
         window.draw(*textException);
-
-    if (textFPS)
-        window.draw(*textFPS);
+    else {
+        if (!running && space.isEmpty())
+            window.draw(homeSprite);
+        else 
+            window.draw(textScore);
+        if (textFPS)
+            window.draw(*textFPS);
+        window.draw(textBestScore);
+    }
 }
 
 void Game::initException(std::exception const& exception)
@@ -142,10 +148,18 @@ void Game::displayFps(void)
 void Game::addPoints(int points)
 {
     score += points;
+    if (score > bestScore)
+        bestScore = score;
     refreshScore();
+    refreshBestScore();
 }
 
 void Game::refreshScore()
 {
     textScore.setString("Score :  "s + std::to_string(score));
+}
+
+void Game::refreshBestScore()
+{
+    textBestScore.setString("Best score :  "s + std::to_string(bestScore));
 }

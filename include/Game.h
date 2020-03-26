@@ -15,8 +15,11 @@ class Game: public std::exception
         bool running{false};
 
         int score{};
+        int bestScore{};
         sf::Text textScore{};
+        sf::Text textBestScore{};
         void refreshScore(void);
+        void refreshBestScore(void);
 
         sf::Clock _clock{};
 
