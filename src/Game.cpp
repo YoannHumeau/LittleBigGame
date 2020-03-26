@@ -17,7 +17,7 @@ space{p_space}
         homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil.png"));
         music.openFromFile("ressources/swtheme.wav");
         music.play();
-        // music.setLoop(true);
+        music.setLoop(true);
     } catch(std::exception const& exception) {
         initException(exception);
     } 
