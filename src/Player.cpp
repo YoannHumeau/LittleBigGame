@@ -16,12 +16,15 @@ game{p_game}
 
 void Player::actualiseState() {
     if (!destruct) {
-        beingAcceleratedFront = sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Z);
-        beingAcceleratedBack = sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S);
-        beingAcceleratedLeft = sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Q);
-        beingAcceleratedRight = sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+        // Move spaceship
+        beingAcceleratedFront = sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Y) < -20);
+        beingAcceleratedBack = sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Y) > 20);
+        beingAcceleratedLeft = sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || (sf::Joystick::getAxisPosition(0, sf::Joystick::X) < -20);
+        beingAcceleratedRight = sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || (sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 20);
 
-        weapon->attack(space, position);
+        // Spaceship attack
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) || sf::Joystick::isButtonPressed(0, 1))
+            weapon->attack(space, position);
     }
 }
 

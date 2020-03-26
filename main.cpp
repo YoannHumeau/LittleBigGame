@@ -24,7 +24,7 @@ int main()
             while(window.pollEvent(event)) {
                 if(event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
                     window.close();
-                if (event.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !game.isRunning())
+                if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || sf::Joystick::isButtonPressed(0, 1)) && !game.isRunning())
                     game.startGame();
             }
 
