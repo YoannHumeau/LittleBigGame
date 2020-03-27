@@ -32,10 +32,10 @@ space{p_space}
 
     try {
         homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil.png"));
-        // music.openFromFile("ressources/swtheme.wav");
+        music.openFromFile("ressources/swtheme.wav");
         // music.play();
-        // music.setVolume(30);
-        // music.setLoop(true);
+        music.setVolume(30);
+        music.setLoop(true);
     } catch(std::exception const& exception) {
         initException(exception);
     } 
@@ -46,10 +46,10 @@ void Game::startGame()
     running = true;
     
     try {
-        // music.openFromFile("ressources/imperial_march.wav");
+        music.openFromFile("ressources/imperial_march.wav");
         // music.play();
-        // music.setVolume(30);
-        // music.setLoop(true);
+        music.setVolume(30);
+        music.setLoop(true);
     } catch (std::exception const& exception) {
         initException(exception);
     }
