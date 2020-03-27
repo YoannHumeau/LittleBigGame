@@ -2,6 +2,11 @@ build
 .vscode
 *.pdf
 
+*.o
+game
+
+bestScores.txt
+
 Space_Invaders/Space_Invaders.cbp
 Space_Invaders/Space_Invaders.depend
 Space_Invaders/Space_Invaders.layout
