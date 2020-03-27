@@ -8,26 +8,34 @@
 #include "Background.h"
 #include "EnnemyGeneration.h"
 #include <string>
+#include <fstream>
 
 using namespace std::string_literals;
 
-Game::Game(Space &p_space):
+Game::Game(Space &p_space, int widthScreen):
+// Game::Game(Space &p_space):
 space{p_space}
 {
     if (!font.loadFromMemory(Air_Americana_ttf, Air_Americana_ttf_size))
         throw std::runtime_error("Police introuvable");
+
     textScore.setFont(font);
     textBestScore.setFont(font);
+    textBestScore.move(150,0);
 
-    textScore.move(0,30);
+    textFPS.setFont(font);
+    displayFps(widthScreen);
+
+    loadBestScoreFromFile();
 
     refreshBestScore();
 
     try {
         homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil.png"));
-        music.openFromFile("ressources/swtheme.wav");
-        music.play();
-        music.setLoop(true);
+        // music.openFromFile("ressources/swtheme.wav");
+        // music.play();
+        // music.setVolume(30);
+        // music.setLoop(true);
     } catch(std::exception const& exception) {
         initException(exception);
     } 
@@ -38,9 +46,10 @@ void Game::startGame()
     running = true;
     
     try {
-        music.openFromFile("ressources/imperial_march.wav");
-        music.play();
-        music.setLoop(true);
+        // music.openFromFile("ressources/imperial_march.wav");
+        // music.play();
+        // music.setVolume(30);
+        // music.setLoop(true);
     } catch (std::exception const& exception) {
         initException(exception);
     }
@@ -85,7 +94,9 @@ void Game::endGame()
 {
     running = false;
     space.purge();
-    music.stop();
+    // music.stop();
+
+    recordBestScoreInFile();
 }
 
 void Game::display(sf::RenderWindow& window) const
@@ -97,8 +108,7 @@ void Game::display(sf::RenderWindow& window) const
             window.draw(homeSprite);
         else 
             window.draw(textScore);
-        if (textFPS)
-            window.draw(*textFPS);
+        window.draw(textFPS);
         window.draw(textBestScore);
     }
 }
@@ -111,6 +121,15 @@ void Game::initException(std::exception const& exception)
     textException->setFillColor(sf::Color::Red);
 }
 
+void Game::setupMusic(std::string_view path, int volume, bool loop)
+{
+    music.openFromFile(path.data());
+    music.play();
+    music.setVolume(volume);
+    music.setLoop(loop);
+}
+
+// FPS Management
 void Game::updateFps()
 {
     fpsCount++;
@@ -118,33 +137,23 @@ void Game::updateFps()
         fps = fpsCount;
         fpsCount = 0;
         fpsInterval.restart().asMilliseconds();
-        std::cout << "Fps: " << getFps() << '\n'; 
     }
 }
 
-
-unsigned int Game::getFps() const
+void Game::displayFps(int widthScreen)
 {
-    return fps;
+    textFPS.setString("FPS : "s + std::to_string(fps));
+    textFPS.move(widthScreen - (textFPS.getLocalBounds().width + 15), 0);
+}
+
+void Game::refreshFps()
+{
+    textFPS.setString("Fps: "s + std::to_string(fps));
 }
 
 
-void Game::displayFps(void)
-{
-    std::string title = "Fps: ";
-    unsigned int numberFps = getFps();
-    std::string result;
-    result = title + std::to_string(numberFps);
 
-    textFPS = std::make_unique<sf::Text>();
-    textFPS->setFont(font);
-    textFPS->setString(result);
-    textFPS->setCharacterSize(18);
-    textFPS->setFillColor(sf::Color::White);
-    textFPS->setStyle(sf::Text::Bold | sf::Text::Underlined);
-    textFPS->setOrigin(0, 0);
-}
-
+// Score Management
 void Game::addPoints(int points)
 {
     score += points;
@@ -156,10 +165,33 @@ void Game::addPoints(int points)
 
 void Game::refreshScore()
 {
-    textScore.setString("Score :  "s + std::to_string(score));
+    textScore.setString("Score : "s + std::to_string(score));
 }
 
 void Game::refreshBestScore()
 {
-    textBestScore.setString("Best score :  "s + std::to_string(bestScore));
+    textBestScore.setString("Best score : "s + std::to_string(bestScore));
+}
+
+void Game::loadBestScoreFromFile()
+{
+    auto file = std::ifstream("bestScores.txt");
+    if (file.is_open())
+        file >> bestScore;
+    else
+        bestScore = 0;
+    file.close();
+}
+
+void Game::recordBestScoreInFile()
+{
+    if (score == bestScore) {
+        bestScore = score;
+        auto file = std::ofstream{"bestScores.txt"};
+        if (file.is_open())
+            file << bestScore;
+        else 
+            throw std::runtime_error("Impossible. No bestScores file opened.");
+        file.close();
+    }
 }

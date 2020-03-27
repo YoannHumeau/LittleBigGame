@@ -5,8 +5,6 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <exception>
-// #include "EnnemyFactory.h"
-// #include "BonusFactory.h"
 #include "EnnemyGeneration.h"
 
 class Game: public std::exception
@@ -21,6 +19,9 @@ class Game: public std::exception
         void refreshScore(void);
         void refreshBestScore(void);
 
+        void loadBestScoreFromFile(void);
+        void recordBestScoreInFile(void);
+
         sf::Clock _clock{};
 
         Space &space;
@@ -28,17 +29,20 @@ class Game: public std::exception
         sf::Music music;
         sf::Font font;
         std::unique_ptr<sf::Text> textException;
-        std::unique_ptr<sf::Text> textFPS;
 
         unsigned int fps;
+        sf::Text textFPS{};
+
         unsigned int fpsCount;
         sf::Clock fpsInterval{};
 
         std::map<int, std::list<EnnemyToGenerate>> enm;
         int lastGeneration {0};
 
+        void setupMusic(std::string_view path, int volume, bool loop);
+
     public:
-        Game(Space&);
+        Game(Space&, int);
 
         inline bool isRunning() const { return running;};
 
@@ -52,7 +56,8 @@ class Game: public std::exception
 
         void updateFps(void);
         unsigned int getFps(void) const;
-        void displayFps(void);
+        void displayFps(int);
+        void refreshFps(void);
 };
 
 #endif
