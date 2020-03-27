@@ -7,6 +7,22 @@ Bonus(p_space, x, y, "ressources/bonus_life.png")
     ACCELERATION = 200.f;
 }
 
-// void BonusLife::consumeBonus(Player& player) {
-//     player.life += 1;
-// }
+void BonusLife::crashReaction(SpaceElement& player)
+{
+    consumeBonus(player);
+    Bonus::crashReaction(player);
+}
+
+void BonusLife::consumeBonus(SpaceElement& player) {
+    if (player.type == ElementType::PLAYER) {
+        destruct = true;
+        Player& p = dynamic_cast<Player&>(player);
+
+        std::cout << "PLAYER LIFE :: " << p.life << std::endl;
+        if (p.life < 3)
+            p.life += 1;
+        std::cout << "PLAYER LIFE AFTER BONUS :: " << p.life << std::endl;
+        
+        // Bonus::crashReaction(p);
+    }
+}

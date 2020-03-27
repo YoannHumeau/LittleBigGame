@@ -20,10 +20,10 @@ class Ship : public PhysicalElement
 
         virtual void crashReaction(SpaceElement& other) override;
 
+        std::unique_ptr<Weapon> weapon;
     protected:
         float ACCELERATION;
 
-        std::unique_ptr<Weapon> weapon;
         Space& space;
         sf::Clock lastShoot{};
 };

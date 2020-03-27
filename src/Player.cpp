@@ -11,7 +11,8 @@ game{p_game}
     position.x = 1024/6.f;
     position.y = 768/2.f;
     type = ElementType::PLAYER;
-    life = 2;
+    shield = 0;
+    life = 1;
 }
 
 void Player::actualiseState() {
@@ -28,7 +29,6 @@ void Player::actualiseState() {
     }
 }
 
-// TODO fonciont move à exporter et centraliser, les ennemis bougent aussi !
 void Player::update(float time) {
     actualiseState();
     if (!destruct) {
@@ -45,44 +45,20 @@ void Player::update(float time) {
     }
 }
 
-// TODO : implémenter l'observer pour détruire l'ennemi qui entre en collision avec le player
 void Player::crashReaction(SpaceElement& other) {
-
-    // if (element.getElementType() == ElementType::ENNEMY) {
     if (other.type == ElementType::ENNEMY) {
         other.crashTest(*this);
-        std::cout << " SHIP SHIELD : " << shield << std::endl;
         if (shield > 0) {
-            // Destroy the ennemy
-            // element.destruct = true;
             shield -= 1;
-            space.add(std::make_unique<Explosion>(position));
-            position = {100, 100};
         } else {
-            std::cout << " SHIP LIFE : " << life << std::endl;
-            
-            if (life > 1) {
-                space.add(std::make_unique<Explosion>(position));
-                life -= 1;
+            if (life > 1)
                 position = {100, 100};
-            }
             else {
-                this->life = life - 1;
                 destruct = true;
                 game.endGame();
-                space.add(std::make_unique<Explosion>(position));
             }
+            life -= 1;
+            space.add(std::make_unique<Explosion>(position));
         }
-    // } else if (other == ElementType::BONUS) {
-    //     std::cout << "Consumed bonus" << std::endl;
-    //     // element->consume(this);
-    // } else if (other == ElementType::WEAPON) {
-    //     this->weapon = "weapon on";
-    }
-
-    if (other.type == ElementType::BONUS)
-    {
-        weapon = std::make_unique<Laser>();
-        std::cout << "Bonus Detection " << std::endl;
     }
 }

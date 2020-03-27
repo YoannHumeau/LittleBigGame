@@ -7,6 +7,19 @@ Bonus(p_space, x, y, "ressources/bonus_shield.png")
     ACCELERATION = 200.f;
 }
 
-// void BonusLife::consumeBonus(Player& player) {
-//     player.shield += 1;
-// }
+void BonusShield::crashReaction(SpaceElement& player)
+{
+    consumeBonus(player);
+    Bonus::crashReaction(player);
+}
+
+void BonusShield::consumeBonus(SpaceElement& player) {
+    if (player.type == ElementType::PLAYER) {
+        destruct = true;
+        Player& p = dynamic_cast<Player&>(player);
+
+        if (p.shield < 3)
+            p.shield += 1;
+        // Bonus::crashReaction(p);
+    }
+}
