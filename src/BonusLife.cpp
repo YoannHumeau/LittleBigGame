@@ -8,15 +8,6 @@ Bonus(p_space, x, y, "ressources/bonus_life.png")
 }
 
 void BonusLife::consumeBonus(Player& player) {
-    // if (player.type == ElementType::PLAYER) {
-    //     destruct = true;
-    //     Player& p = dynamic_cast<Player&>(player);
-
-        std::cout << "PLAYER LIFE :: " << player.life << std::endl;
-        if (player.life < 3)
-            player.life += 1;
-        std::cout << "PLAYER LIFE AFTER BONUS :: " << player.life << std::endl;
-        
-        // Bonus::crashReaction(p);
-    // }
+    if (player.life < 3)
+        player.life += 1;
 }
