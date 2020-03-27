@@ -7,6 +7,7 @@ Bonus(p_space, x, y, "ressources/bonus_shield.png")
     ACCELERATION = 200.f;
 }
 
-// void BonusLife::consumeBonus(Player& player) {
-//     player.shield += 1;
-// }
+void BonusShield::consumeBonus(Player& player) {
+    if (player.shield < 3)
+        player.shield += 1;
+}

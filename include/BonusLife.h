@@ -7,7 +7,7 @@ class BonusLife: public Bonus
 {
     public:
         explicit BonusLife(Space& p_space, float x, float y);
-        //virtual void consumeBonus(Player& player) override;
+        virtual void consumeBonus(Player& player) override;
 };
 
 #endif

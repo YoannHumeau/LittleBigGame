@@ -10,6 +10,9 @@ Ship(p_space, path)
 Bonus::~Bonus() {}
 
 void Bonus::crashReaction(SpaceElement& other) {
-    if (other.type == ElementType::PLAYER)
+    if (other.type == ElementType::PLAYER) {
         destruct = true;
+        Player& p = dynamic_cast<Player&>(other);
+        consumeBonus(p);
+    }
 }

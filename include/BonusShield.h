@@ -7,7 +7,7 @@ class BonusShield: public Bonus
 {
     public:
         explicit BonusShield(Space& p_space, float x, float y);
-        //virtual void consumeBonus(Player& player) override;
+        virtual void consumeBonus(Player& player) override;
 };
 
 #endif

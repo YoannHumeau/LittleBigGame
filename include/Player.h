@@ -7,7 +7,6 @@ class Player: public Ship
 {
     private:
 
-        int shield{1};
         // int maxShield{3};
         void actualiseState(void);
         virtual void update(float time) override;
@@ -22,6 +21,7 @@ class Player: public Ship
         Game& game;
 
     public:
+        int shield{1};
         explicit Player(Game& p_game, Space& p_space);
         virtual void crashReaction(SpaceElement& other) override;
 };
