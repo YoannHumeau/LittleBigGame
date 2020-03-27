@@ -15,11 +15,8 @@ class Bonus: public Ship
         void AskForBonus();
 
     protected:
-
         BonusType bType;
-
-        // virtual void actualiseState() override;
-        // virtual void update(float time) override;
+        virtual void consumeBonus(Player& player) = 0;
 };
 
 #endif

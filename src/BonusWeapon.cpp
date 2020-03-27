@@ -8,21 +8,7 @@ Bonus(p_space, x, y, "ressources/bonus_weapon.png")
     ACCELERATION = 200.f;
 }
 
-void BonusWeapon::crashReaction(SpaceElement& player)
-{
-    consumeBonus(player);
-    Bonus::crashReaction(player);
-}
-
-void BonusWeapon::consumeBonus(SpaceElement& player) {
-    if (player.type == ElementType::PLAYER) {
-        destruct = true;
-        Player& p = dynamic_cast<Player&>(player);
-
-        std::cout << "PLAYER LIFE :: " << p.life << std::endl;
-        p.weapon = std::make_unique<Laser>();
-        std::cout << "PLAYER LIFE AFTER BONUS :: " << p.life << std::endl;
-        
-        // Bonus::crashReaction(p);
-    }
+void BonusWeapon::consumeBonus(Player& player) {
+    // Need the WeaponFactory right here/
+    player.weapon = std::make_unique<Laser>();
 }
