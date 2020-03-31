@@ -236,3 +236,8 @@ void Game::setShipState(int life, int shield)
     refreshLife(life);
     refreshShield(shield);
 }
+
+void Game::setPlayerPosition(Coordinate &p_coord)
+{
+    playerCoord = p_coord;
+}
