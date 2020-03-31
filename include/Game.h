@@ -71,6 +71,9 @@ class Game: public std::exception
         void refreshShield(int shield);
 
         void setShipState(int life, int shield);
+
+        void setPlayerPosition(Coordinate &p_coord);
+        Coordinate playerCoord{};
 };
 
 #endif
