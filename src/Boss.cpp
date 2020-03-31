@@ -12,13 +12,11 @@ void Boss::update(float time) {
     bool bossFullInScreen = isBossFullInScreen();
     
     if (!destruct) {
-        if (!bossFullInScreen)
-        {
+        if (!bossFullInScreen) {
             speed += {-ACCELERATION * time, 0.f}; 
-            if (type != ElementType:: BULLET) {
+            if (type != ElementType:: BULLET)
                 speed -= speed * COEF_FROTTEMENTS * time;
-            }
-        }else{
+        } else {
             speed.x = 0;
             ACCELERATION = 0.f;
         }
@@ -32,7 +30,7 @@ void Boss::crashReaction(SpaceElement& other) {
     if (other.type == ElementType::BULLET || other.type == ElementType::PLAYER) {
         if (life > 0) {
             life -= 1;
-        }else{
+        } else {
             space.add(std::make_unique<Explosion>(position));
             destruct = true;
             game.addPoints(sprite.getScale().x * 100);
