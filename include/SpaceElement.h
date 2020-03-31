@@ -23,6 +23,7 @@ class SpaceElement: public Resource
         void operator=(SpaceElement const& other) = delete;
         void screenLimit(void);
         void destructOutOfScreen(void);
+        bool isBossFullInScreen(void);
 
         virtual void display(sf::RenderWindow& window) const;
         virtual void crashTest(SpaceElement& other) = 0;
