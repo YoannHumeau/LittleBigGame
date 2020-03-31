@@ -10,4 +10,5 @@ Bonus(p_space, x, y, "ressources/bonus_shield.png")
 void BonusShield::consumeBonus(Player& player) {
     if (player.shield < 3)
         player.shield += 1;
+    player.game.setShipState(player.life, player.shield);
 }
