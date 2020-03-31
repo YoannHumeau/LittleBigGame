@@ -14,14 +14,11 @@ class Ennemy: public Ship
         virtual void crashReaction(SpaceElement& other) override;
         
     protected:
-
         EnnemyType eType;
-
-        // virtual void actualiseState() override;
-        // virtual void update(float time) override;
+        Game &game;
+        
     private:
         void AskForBonus();
-        Game &game;
 };
 
 #endif
