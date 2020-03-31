@@ -18,9 +18,8 @@ class Player: public Ship
         bool beingAcceleratedLeft{false};
         bool beingAcceleratedRight{false};
 
-        Game& game;
-
     public:
+        Game& game;
         int shield{1};
         explicit Player(Game& p_game, Space& p_space);
         virtual void crashReaction(SpaceElement& other) override;
