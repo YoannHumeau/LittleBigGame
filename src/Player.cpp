@@ -13,6 +13,7 @@ game{p_game}
     type = ElementType::PLAYER;
     shield = 0;
     life = 1;
+    game.setShipState(life, shield);
 }
 
 void Player::actualiseState() {
@@ -60,5 +61,6 @@ void Player::crashReaction(SpaceElement& other) {
             life -= 1;
             space.add(std::make_unique<Explosion>(position));
         }
+        game.setShipState(life, shield);
     }
 }
