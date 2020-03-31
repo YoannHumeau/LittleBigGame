@@ -41,6 +41,18 @@ void SpaceElement::destructOutOfScreen()
     }
 }
 
+bool SpaceElement::isBossFullInScreen()
+{
+    float halfSpriteX = sprite.getLocalBounds().width / 2.f;
+
+    if (!destruct) {
+        if (position.x > (position.getWidthSpace() - halfSpriteX))
+            return false; 
+    }
+
+    return true;
+}
+
 float SpaceElement::getRadius() const {
    return sprite.getLocalBounds().height / 2.f;
 }
