@@ -41,6 +41,13 @@ class Game: public std::exception
 
         void setupMusic(std::string_view path, int volume, bool loop);
 
+        int shipLife{};
+        int shipShield{};
+        Resource imgLife{};
+        Resource imgShield{};
+        sf::Text textLife{};
+        sf::Text textShield{};
+
     public:
         Game(Space&, int);
 
@@ -58,6 +65,13 @@ class Game: public std::exception
         unsigned int getFps(void) const;
         void displayFps(int);
         void refreshFps(void);
+
+        void displayShipState(int widthScreen);
+        void displayValues(sf::Text &text, sf::Sprite &sprite, int value);
+        void refreshLife(int life);
+        void refreshShield(int shield);
+
+        void setShipState(int life, int shield);
 };
 
 #endif
