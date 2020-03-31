@@ -34,10 +34,7 @@ space{p_space}
 
     try {
         homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil.png"));
-        music.openFromFile("ressources/swtheme.wav");
-        music.play();
-        music.setVolume(30);
-        music.setLoop(true);
+        setupMusic("ressources/swtheme.wav");
     } catch(std::exception const& exception) {
         initException(exception);
     } 
@@ -48,10 +45,7 @@ void Game::startGame()
     running = true;
     
     try {
-        music.openFromFile("ressources/imperial_march.wav");
-        music.play();
-        music.setVolume(30);
-        music.setLoop(true);
+        setupMusic("ressources/imperial_march.wav");
     } catch (std::exception const& exception) {
         initException(exception);
     }
@@ -74,7 +68,7 @@ void Game::generateEnnemies()
             std::cout << "LOG INFO : ";
             for (std::list<EnnemyToGenerate>::const_iterator i = enm[now].begin(), end = enm[now].end(); i != end; ++i) {
                 std::cout << "Ennemy[" << i->ennemyType << "]atY[" << i->ypos << "]  ";
-                space.add(EnnemyFactory::GetInstance().Create(*this, space, 1000, i->ypos, i->ennemyType));
+                space.add(EnnemyFactory::GetInstance().Create(*this, space, 1050, i->ypos, i->ennemyType));
             }
             std::cout << std::endl;
         }
@@ -87,6 +81,7 @@ void Game::endGame()
     running = false;
     space.purge();
     // music.stop();
+    setupMusic("ressources/swtheme.wav");
 
     recordBestScoreInFile();
 }
