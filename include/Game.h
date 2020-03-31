@@ -56,7 +56,6 @@ class Game: public std::exception
         void addPoints(int);
         void startGame();
         void generateEnnemies();
-        void generateBonuses();
         void endGame();
         void display(sf::RenderWindow&) const;
         void initException(std::exception const&);

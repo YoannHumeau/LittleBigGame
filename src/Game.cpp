@@ -13,7 +13,6 @@
 using namespace std::string_literals;
 
 Game::Game(Space &p_space, int widthScreen):
-// Game::Game(Space &p_space):
 space{p_space}
 {
     if (!font.loadFromMemory(Air_Americana_ttf, Air_Americana_ttf_size))
@@ -26,6 +25,9 @@ space{p_space}
     textFPS.setFont(font);
     displayFps(widthScreen);
 
+    textLife.setFont(font);
+    textShield.setFont(font);
+    displayShipState(widthScreen);
     loadBestScoreFromFile();
 
     refreshBestScore();
@@ -80,16 +82,6 @@ void Game::generateEnnemies()
     }
 }
 
-void Game::generateBonuses()
-{
-    if (isRunning()) {
-        // if (_clock.getElapsedTime().asSeconds() > 2) {
-        //     space.addBonuses(2);
-        //     _clock.restart().asSeconds();
-        // }
-    }
-}
-
 void Game::endGame()
 {
     running = false;
@@ -109,6 +101,12 @@ void Game::display(sf::RenderWindow& window) const
         else 
             window.draw(textScore);
         window.draw(textFPS);
+
+        window.draw(imgLife.sprite);
+        window.draw(textLife);
+        window.draw(imgShield.sprite);
+        window.draw(textShield);
+        
         window.draw(textBestScore);
     }
 }
@@ -194,4 +192,47 @@ void Game::recordBestScoreInFile()
             throw std::runtime_error("Impossible. No bestScores file opened.");
         file.close();
     }
+}
+
+void Game::displayShipState(int widthScreen)
+{
+    // Generate img life
+    imgLife.sprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/bonus_life.png"));
+    imgLife.sprite.setScale(0.5f, 0.5f);
+    imgLife.sprite.setPosition((widthScreen / 2), 0);
+
+    // display nbLife
+    displayValues(textLife, imgLife.sprite, shipLife);
+
+    // Generate img Shield
+    imgShield.sprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/bonus_shield.png"));
+    imgShield.sprite.setScale(0.5f, 0.5f);
+    imgShield.sprite.setPosition((widthScreen / 2) + imgLife.sprite.getLocalBounds().width, 0);
+
+    // display nbShield
+    displayValues(textShield, imgShield.sprite, shipShield);
+}
+
+void Game::displayValues(sf::Text &text, sf::Sprite &sprite, int value)
+{
+    text.move(sprite.getPosition().x + (sprite.getLocalBounds().width / 2), 0);
+    text.setString(std::to_string(value));
+}
+
+void Game::refreshLife(int life)
+{
+    textLife.setString(std::to_string(life));
+}
+
+void Game::refreshShield(int shield)
+{
+    textShield.setString(std::to_string(shield));
+}
+
+void Game::setShipState(int life, int shield)
+{
+    shipLife = life;
+    shipShield = shield;
+    refreshLife(life);
+    refreshShield(shield);
 }
