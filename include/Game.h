@@ -39,7 +39,7 @@ class Game: public std::exception
         std::map<int, std::list<EnnemyToGenerate>> enm;
         int lastGeneration {0};
 
-        void setupMusic(std::string_view path, int volume = 30, bool loop = true);
+        void setupMusic(std::string_view path, int volume = 10, bool loop = true);
 
         int shipLife{};
         int shipShield{};
