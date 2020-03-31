@@ -33,7 +33,7 @@ space{p_space}
     refreshBestScore();
 
     try {
-        homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil.png"));
+        homeSprite.setTexture(ResourceManager<sf::Texture>::getResource("ressources/accueil_1_vf.jpg"));
         music.openFromFile("ressources/swtheme.wav");
         // music.play();
         music.setVolume(30);
