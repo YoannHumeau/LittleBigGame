@@ -9,6 +9,7 @@
 #include "EnnemyGeneration.h"
 #include <string>
 #include <fstream>
+#include <unistd.h>
 
 using namespace std::string_literals;
 
@@ -79,11 +80,27 @@ void Game::generateEnnemies()
 void Game::endGame()
 {
     running = false;
+    win = false;
     space.purge();
     // music.stop();
     setupMusic("ressources/swtheme.wav");
 
     recordBestScoreInFile();
+}
+
+void Game::victory()
+{
+    win = true;
+    endGame();
+}
+
+void Game::displayVictory()
+{
+    victoryText.setFont(font);
+    victoryText.setString("W  I  N !");
+    victoryText.move(500, 350);
+    victoryText.setFillColor(sf::Color::Yellow);
+    // usleep(2000000);
 }
 
 void Game::display(sf::RenderWindow& window) const
@@ -103,6 +120,7 @@ void Game::display(sf::RenderWindow& window) const
         window.draw(textShield);
         
         window.draw(textBestScore);
+        window.draw(victoryText);
     }
 }
 
@@ -117,7 +135,7 @@ void Game::initException(std::exception const& exception)
 void Game::setupMusic(std::string_view path, int volume, bool loop)
 {
     music.openFromFile(path.data());
-    music.play();
+    // music.play();
     music.setVolume(volume);
     music.setLoop(loop);
 }
