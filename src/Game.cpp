@@ -9,7 +9,6 @@
 #include "EnnemyGeneration.h"
 #include <string>
 #include <fstream>
-#include <unistd.h>
 
 using namespace std::string_literals;
 
@@ -77,30 +76,14 @@ void Game::generateEnnemies()
     }
 }
 
-void Game::endGame()
+void Game::endGame(std::string_view path)
 {
     running = false;
-    win = false;
     space.purge();
     // music.stop();
     setupMusic("ressources/swtheme.wav");
-
+    homeSprite.setTexture(ResourceManager<sf::Texture>::getResource(path.data()));
     recordBestScoreInFile();
-}
-
-void Game::victory()
-{
-    win = true;
-    endGame();
-}
-
-void Game::displayVictory()
-{
-    victoryText.setFont(font);
-    victoryText.setString("W  I  N !");
-    victoryText.move(500, 350);
-    victoryText.setFillColor(sf::Color::Yellow);
-    // usleep(2000000);
 }
 
 void Game::display(sf::RenderWindow& window) const
@@ -120,7 +103,6 @@ void Game::display(sf::RenderWindow& window) const
         window.draw(textShield);
         
         window.draw(textBestScore);
-        window.draw(victoryText);
     }
 }
 

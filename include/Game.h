@@ -47,10 +47,7 @@ class Game: public std::exception
         Resource imgShield{};
         sf::Text textLife{};
         sf::Text textShield{};
-
-        bool win = false;
-        sf::Text victoryText{};
-
+        
     public:
         Game(Space&, int);
 
@@ -59,7 +56,7 @@ class Game: public std::exception
         void addPoints(int);
         void startGame();
         void generateEnnemies();
-        void endGame();
+        void endGame(std::string_view path);
         void victory();
         void display(sf::RenderWindow&) const;
         void initException(std::exception const&);
@@ -78,8 +75,6 @@ class Game: public std::exception
 
         void setPlayerPosition(Coordinate &p_coord);
         Coordinate playerCoord{};
-
-        void displayVictory();
 };
 
 #endif

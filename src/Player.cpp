@@ -57,7 +57,7 @@ void Player::crashReaction(SpaceElement& other) {
                 position = {100, 100};
             else {
                 destruct = true;
-                game.endGame();
+                game.endGame("ressources/accueil_1_vf.jpg");
             }
             life -= 1;
             space.add(std::make_unique<Explosion>(position));

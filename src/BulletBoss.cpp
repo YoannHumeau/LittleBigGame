@@ -2,7 +2,7 @@
 
 
 BulletBoss::BulletBoss(Coordinate const& p_position) :
-PhysicalElement("ressources/bullet-boss.png")
+PhysicalElement("ressources/bullet_boss.png")
 {
     position = p_position;
     speed = Vecteur{VITESSE, 0};

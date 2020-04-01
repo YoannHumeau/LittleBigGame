@@ -3,7 +3,7 @@
 #include <math.h>
 
 Boss::Boss(Game &p_game, Space &p_space, float x, float y):
-Ennemy(p_game, p_space, x, y, "ressources/ennemy3.png")
+Ennemy(p_game, p_space, x, y, "ressources/ennemy_boss.png")
 {
     life = 3;
     eType = EnnemyType::BOSS;
@@ -43,8 +43,7 @@ void Boss::crashReaction(SpaceElement& other) {
             space.add(std::make_unique<Explosion>(position));
             destruct = true;
             game.addPoints(sprite.getScale().x * 100);
-            game.displayVictory();
-            game.victory();
+            game.endGame("ressources/loose.png");
         }
     }
 }
