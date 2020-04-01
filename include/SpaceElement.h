@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-enum class ElementType {PLAYER, BULLET, OTHER, BONUS, WEAPON, ENNEMY};
+enum class ElementType {PLAYER, BULLET, OTHER, BONUS, WEAPON, ENNEMY, ENNEMYBULLET};
 
 class SpaceElement: public Resource
 {
