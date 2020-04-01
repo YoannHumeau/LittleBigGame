@@ -1,10 +1,10 @@
 #include "Background.h"
 
-Background::Background():
-SpaceElement("ressources/map3.png")
+Background::Background(int level):
+SpaceElement("ressources/map1.png")
 {
+    changeSprite("ressources/map"+std::to_string(level)+".png");
     sprite.setOrigin(0, -marge);
-    // sprite.setPosition(0, 0);
     type = ElementType::OTHER;
     ACCELERATION = 2.f;
 }

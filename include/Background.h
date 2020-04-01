@@ -6,7 +6,7 @@
 class Background: public SpaceElement
 {
     public:
-        Background();
+        Background(int level);
 
         virtual void update(float time) override;
         virtual void crashTest(SpaceElement& other) override;

@@ -12,7 +12,7 @@ struct EnnemyToGenerate {
 class EnnemyGeneration
 {
     public:
-        static std::map<int, std::list<EnnemyToGenerate>> GetEnnemiesToGenerate();
+        static std::map<int, std::list<EnnemyToGenerate>> GetEnnemiesToGenerate(int level);
 };
 
 #endif 

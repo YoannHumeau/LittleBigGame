@@ -42,6 +42,7 @@ class SpaceElement: public Resource
         Vecteur speed{0.f, 0.f};
 
         virtual void update(float time) = 0;
+        void changeSprite(std::string_view const& pathImage);
 };
 
 #endif // SPACEELEMENT_H

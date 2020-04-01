@@ -51,12 +51,13 @@ void Game::startGame()
     }
     
     _clock.restart();
-    score = 0;
+    if (level == 1)
+        score = 0;
     refreshScore();
-    space.add(std::make_unique<Background>());
+    space.add(std::make_unique<Background>(level));
     space.add(std::make_unique<Player>(*this, space));
     
-    enm = EnnemyGeneration::GetEnnemiesToGenerate();
+    enm = EnnemyGeneration::GetEnnemiesToGenerate(level);
 }
 
 void Game::generateEnnemies()
@@ -210,7 +211,7 @@ void Game::displayShipState(int widthScreen)
 
 void Game::displayValues(sf::Text &text, sf::Sprite &sprite, int value)
 {
-    text.move(sprite.getPosition().x + (sprite.getLocalBounds().width / 2), 0);
+    text.move(sprite.getPosition().x + (sprite.getLocalBounds().width / 2) + 5, 0);
     text.setString(std::to_string(value));
 }
 
@@ -235,4 +236,14 @@ void Game::setShipState(int life, int shield)
 void Game::setPlayerPosition(Coordinate &p_coord)
 {
     playerCoord = p_coord;
+}
+
+void Game::nextLevel(void)
+{
+    level += 1;
+}
+
+int Game::getLevel(void) const
+{
+    return level;
 }

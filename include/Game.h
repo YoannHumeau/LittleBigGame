@@ -47,6 +47,8 @@ class Game: public std::exception
         Resource imgShield{};
         sf::Text textLife{};
         sf::Text textShield{};
+
+        int level{1};
         
     public:
         Game(Space&, int);
@@ -75,6 +77,9 @@ class Game: public std::exception
 
         void setPlayerPosition(Coordinate &p_coord);
         Coordinate playerCoord{};
+
+        void nextLevel(void);
+        int getLevel(void) const;
 };
 
 #endif

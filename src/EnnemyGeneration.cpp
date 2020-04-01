@@ -7,7 +7,7 @@
 #include <list>
 #include <vector>
 
-std::map<int, std::list<EnnemyToGenerate>> EnnemyGeneration::GetEnnemiesToGenerate()
+std::map<int, std::list<EnnemyToGenerate>> EnnemyGeneration::GetEnnemiesToGenerate(int level)
 {
     // Create dictionnary of list of enemy
     std::map<int, std::list<EnnemyToGenerate>> enm;
@@ -15,7 +15,7 @@ std::map<int, std::list<EnnemyToGenerate>> EnnemyGeneration::GetEnnemiesToGenera
     // Second for the value
 
     // Read the csv file
-    io::CSVReader<3> csv("level1.csv");
+    io::CSVReader<3> csv("level" + std::to_string(level) + ".csv");
     // Get values for each lines
     int time, ennemy, ypos;
     csv.read_header(io::ignore_extra_column, "time", "ennemy", "ypos");
