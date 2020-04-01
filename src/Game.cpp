@@ -99,8 +99,7 @@ void Game::display(sf::RenderWindow& window) const
     else {
         if (!running && space.isEmpty())
             window.draw(homeSprite);
-        else 
-            window.draw(textScore);
+        window.draw(textScore);
         window.draw(textFPS);
 
         window.draw(imgLife.sprite);
