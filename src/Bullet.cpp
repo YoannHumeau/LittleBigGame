@@ -14,6 +14,6 @@ PhysicalElement("ressources/bullet.png")
 
 void Bullet::crashReaction(SpaceElement& other)
 {
-    if (other.type == ElementType::ENNEMY || other.type == ElementType::BULLET)
+    if (other.type == ElementType::ENNEMY || other.type == ElementType::ENNEMYBULLET)
         destruct = true;
 }
