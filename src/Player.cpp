@@ -48,7 +48,7 @@ void Player::update(float time) {
 }
 
 void Player::crashReaction(SpaceElement& other) {
-    if (other.type == ElementType::ENNEMY) {
+    if (other.type == ElementType::ENNEMY || other.type == ElementType::ENNEMYBULLET) {
         other.crashTest(*this);
         if (shield > 0) {
             shield -= 1;
