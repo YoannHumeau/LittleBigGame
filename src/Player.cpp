@@ -12,7 +12,7 @@ game{p_game}
     position.y = 768/2.f;
     type = ElementType::PLAYER;
     shield = 0;
-    life = 1;
+    life = 3;
     game.setShipState(life, shield);
 }
 
@@ -53,14 +53,14 @@ void Player::crashReaction(SpaceElement& other) {
         if (shield > 0) {
             shield -= 1;
         } else {
+            space.add(std::make_unique<Explosion>(position));
             if (life > 1)
                 position = {100, 100};
             else {
                 destruct = true;
-                game.endGame("ressources/accueil_1_vf.jpg");
+                game.endGame("ressources/end_lose.png");
             }
             life -= 1;
-            space.add(std::make_unique<Explosion>(position));
         }
         game.setShipState(life, shield);
     }

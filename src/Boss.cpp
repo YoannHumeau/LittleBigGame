@@ -43,7 +43,7 @@ void Boss::crashReaction(SpaceElement& other) {
             space.add(std::make_unique<Explosion>(position));
             destruct = true;
             game.addPoints(sprite.getScale().x * 100);
-            game.endGame("ressources/loose.png");
+            game.endGame("ressources/end_win.png");
         }
     }
 }
