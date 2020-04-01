@@ -5,11 +5,7 @@
 Boss::Boss(Game &p_game, Space &p_space, float x, float y):
 Ennemy(p_game, p_space, x, y, "ressources/ennemy3.png")
 {
-<<<<<<< Updated upstream
-    life = 1000;
-=======
     life = 3;
->>>>>>> Stashed changes
     eType = EnnemyType::BOSS;
     ACCELERATION = 300.f;
     weapon = std::make_unique<WeaponBoss>();
