@@ -36,8 +36,8 @@ int main()
             space.manageCrash();
 
             window.clear();
-            space.display(window);
             game.display(window);
+            space.display(window);
             window.display();
 
             space.cleanSpace();

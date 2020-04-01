@@ -76,13 +76,13 @@ void Game::generateEnnemies()
     }
 }
 
-void Game::endGame()
+void Game::endGame(std::string_view path)
 {
     running = false;
     space.purge();
     // music.stop();
     setupMusic("ressources/swtheme.wav");
-
+    homeSprite.setTexture(ResourceManager<sf::Texture>::getResource(path.data()));
     recordBestScoreInFile();
 }
 
@@ -117,7 +117,7 @@ void Game::initException(std::exception const& exception)
 void Game::setupMusic(std::string_view path, int volume, bool loop)
 {
     music.openFromFile(path.data());
-    music.play();
+    // music.play();
     music.setVolume(volume);
     music.setLoop(loop);
 }

@@ -47,7 +47,7 @@ class Game: public std::exception
         Resource imgShield{};
         sf::Text textLife{};
         sf::Text textShield{};
-
+        
     public:
         Game(Space&, int);
 
@@ -56,7 +56,8 @@ class Game: public std::exception
         void addPoints(int);
         void startGame();
         void generateEnnemies();
-        void endGame();
+        void endGame(std::string_view path);
+        void victory();
         void display(sf::RenderWindow&) const;
         void initException(std::exception const&);
 
