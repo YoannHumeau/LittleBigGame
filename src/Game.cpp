@@ -57,7 +57,12 @@ void Game::startGame()
     space.add(std::make_unique<Background>(level));
     space.add(std::make_unique<Player>(*this, space));
     
-    enm = EnnemyGeneration::GetEnnemiesToGenerate(level);
+    try {
+        enm = EnnemyGeneration::GetEnnemiesToGenerate(level);
+    } catch (std::exception const& exception) {
+        initException(exception);
+        endGame("ressources/end_win.png");
+    }
 }
 
 void Game::generateEnnemies()
