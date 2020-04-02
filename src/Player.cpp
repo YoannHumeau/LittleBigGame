@@ -57,6 +57,7 @@ void Player::crashReaction(SpaceElement& other) {
                 position = {100, 100};
             else {
                 destruct = true;
+                game.restartGameLevel();
                 game.endGame("ressources/end_lose.png");
             }
             life -= 1;

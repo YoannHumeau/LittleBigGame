@@ -79,6 +79,7 @@ class Game: public std::exception
         Coordinate playerCoord{};
 
         void nextLevel(void);
+        void restartGameLevel(void);
         int getLevel(void) const;
 };
 
