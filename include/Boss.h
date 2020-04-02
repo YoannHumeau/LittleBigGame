@@ -10,9 +10,7 @@ class Boss: public Ennemy
         virtual void update(float time) override;
         virtual void crashReaction(SpaceElement& other) override;
     private:
-        float cpt{1};
-        float amplitude{8};
-        float frequency{0.5};
+        int direction = 1;
 };
 
 #endif
