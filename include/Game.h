@@ -39,8 +39,17 @@ class Game: public std::exception
         std::map<int, std::list<EnnemyToGenerate>> enm;
         int lastGeneration {0};
 
-        void setupMusic(std::string_view path, int volume, bool loop);
+        void setupMusic(std::string_view path, int volume = 10, bool loop = true);
 
+        int shipLife{};
+        int shipShield{};
+        Resource imgLife{};
+        Resource imgShield{};
+        sf::Text textLife{};
+        sf::Text textShield{};
+
+        int level{1};
+        
     public:
         Game(Space&, int);
 
@@ -49,8 +58,8 @@ class Game: public std::exception
         void addPoints(int);
         void startGame();
         void generateEnnemies();
-        void generateBonuses();
-        void endGame();
+        void endGame(std::string_view path);
+        void victory();
         void display(sf::RenderWindow&) const;
         void initException(std::exception const&);
 
@@ -58,6 +67,19 @@ class Game: public std::exception
         unsigned int getFps(void) const;
         void displayFps(int);
         void refreshFps(void);
+
+        void displayShipState(int widthScreen);
+        void displayValues(sf::Text &text, sf::Sprite &sprite, int value);
+        void refreshLife(int life);
+        void refreshShield(int shield);
+
+        void setShipState(int life, int shield);
+
+        void setPlayerPosition(Coordinate &p_coord);
+        Coordinate playerCoord{};
+
+        void nextLevel(void);
+        int getLevel(void) const;
 };
 
 #endif

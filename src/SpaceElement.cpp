@@ -3,9 +3,10 @@
 #include <iostream>
 
 SpaceElement::SpaceElement(std::string_view const& pathImage) {
-    sprite.setTexture(ResourceManager<sf::Texture>::getResource(pathImage));
-    sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
-    sprite.setPosition(position.getX(), position.getY());
+    changeSprite(pathImage);
+    // sprite.setTexture(ResourceManager<sf::Texture>::getResource(pathImage));
+    // sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
+    // sprite.setPosition(position.getX(), position.getY());
     sound.setVolume(50);
 }
 
@@ -18,6 +19,13 @@ void SpaceElement::actualize(float time) {
 
 void SpaceElement::display(sf::RenderWindow& window) const {
     window.draw(sprite);
+}
+
+void SpaceElement::changeSprite(std::string_view const& pathImage)
+{
+    sprite.setTexture(ResourceManager<sf::Texture>::getResource(pathImage));
+    sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
+    sprite.setPosition(position.getX(), position.getY());
 }
 
 void SpaceElement::screenLimit()
@@ -39,6 +47,18 @@ void SpaceElement::destructOutOfScreen()
         if (position.x < (0 - halfSpriteX)) {destruct = true;}
         if (position.x > (position.getWidthSpace() - halfSpriteX) && type == ElementType::BULLET) {destruct = true;}
     }
+}
+
+bool SpaceElement::isBossFullInScreen()
+{
+    float halfSpriteX = sprite.getLocalBounds().width / 2.f;
+
+    if (!destruct) {
+        if (position.x > (position.getWidthSpace() - halfSpriteX))
+            return false; 
+    }
+
+    return true;
 }
 
 float SpaceElement::getRadius() const {

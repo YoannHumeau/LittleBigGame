@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-enum class ElementType {PLAYER, BULLET, OTHER, BONUS, WEAPON, ENNEMY};
+enum class ElementType {PLAYER, BULLET, OTHER, BONUS, WEAPON, ENNEMY, ENNEMYBULLET};
 
 class SpaceElement: public Resource
 {
@@ -23,6 +23,7 @@ class SpaceElement: public Resource
         void operator=(SpaceElement const& other) = delete;
         void screenLimit(void);
         void destructOutOfScreen(void);
+        bool isBossFullInScreen(void);
 
         virtual void display(sf::RenderWindow& window) const;
         virtual void crashTest(SpaceElement& other) = 0;
@@ -41,6 +42,7 @@ class SpaceElement: public Resource
         Vecteur speed{0.f, 0.f};
 
         virtual void update(float time) = 0;
+        void changeSprite(std::string_view const& pathImage);
 };
 
 #endif // SPACEELEMENT_H

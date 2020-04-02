@@ -2,7 +2,7 @@
 #include <math.h>
 
 Cruiser::Cruiser(Game &p_game, Space &p_space, float x, float y):
-Ennemy(p_game, p_space, x, y, "ressources/ennemy2.png")
+Ennemy(p_game, p_space, x, y, "ressources/ennemy_cruiser.png")
 {
     eType = EnnemyType::CRUISER;
     ACCELERATION = 500.f;

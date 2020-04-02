@@ -2,7 +2,7 @@
 
 
 Bullet::Bullet(Coordinate const& p_position) :
-PhysicalElement("ressources/missile.png")
+PhysicalElement("ressources/bullet.png")
 {
     position = p_position;
     speed = Vecteur{VITESSE, 0.1f};
@@ -14,6 +14,6 @@ PhysicalElement("ressources/missile.png")
 
 void Bullet::crashReaction(SpaceElement& other)
 {
-    if (other.type == ElementType::ENNEMY || other.type == ElementType::BULLET)
+    if (other.type == ElementType::ENNEMY || other.type == ElementType::ENNEMYBULLET)
         destruct = true;
 }

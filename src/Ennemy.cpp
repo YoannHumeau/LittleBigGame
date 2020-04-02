@@ -1,9 +1,9 @@
 #include "Ennemy.h"
 #include "Bonus.h"
+#include "BonusFactory.h"
 
 Ennemy::Ennemy(Game &p_game, Space& p_space, float x, float y, std::string_view path):
-Ship(p_space, path),
-game{p_game}
+Ship(p_space, p_game, path)
 {
     position = Coordinate{x, y};
     type = ElementType::ENNEMY;
@@ -11,23 +11,7 @@ game{p_game}
 
 Ennemy::~Ennemy() {}
 
-// void Ennemy::actualiseState() {
-//     if (!destruct) {
-//         beingAcceleratedLeft = true;
-//     }
-// }
-
-// void Ennemy::update(float time) {
-//     actualiseState();
-//     if (!destruct) {
-//         speed += {-ACCELERATION * time, 0.f};
-//         speed -= speed * COEF_FROTTEMENTS * time;
-//         destructOutOfScreen();
-//     }
-// }
-
 void Ennemy::crashReaction(SpaceElement& other) {
-
     if (other.type == ElementType::BULLET || other.type == ElementType::PLAYER) {
         game.addPoints(sprite.getScale().x * 100);
         destruct = true;
@@ -53,8 +37,6 @@ void Ennemy::AskForBonus()
             break;
     }
 
-    if (bonus != 0) { 
-        space.addBonuses(bonus, this->position.x, this->position.y);
-        std::cout << "LOG INFO : Bonus generate X:" << this->position.x << " Y:" << this->position.y << std::endl;
-    }
+    if (bonus != 0) 
+        space.add(BonusFactory::GetInstance().Create(position.x, position.y, bonus));
 }

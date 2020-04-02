@@ -7,7 +7,6 @@ class Player: public Ship
 {
     private:
 
-        // int maxShield{3};
         void actualiseState(void);
         virtual void update(float time) override;
 
@@ -17,8 +16,6 @@ class Player: public Ship
         bool beingAcceleratedBack{false};
         bool beingAcceleratedLeft{false};
         bool beingAcceleratedRight{false};
-
-        Game& game;
 
     public:
         int shield{1};
