@@ -3,9 +3,10 @@
 #include <math.h>
 
 Boss::Boss(Game &p_game, Space &p_space, float x, float y):
-Ennemy(p_game, p_space, x, y, "ressources/ennemy_boss.png")
+Ennemy(p_game, p_space, x, y, "ressources/ennemy_boss_1.png")
 {
-    life = 15;
+    changeSprite("ressources/ennemy_boss_"+std::to_string(game.getLevel())+".png");
+    life = 3;
     eType = EnnemyType::BOSS;
     ACCELERATION = 300.f;
     weapon = std::make_unique<WeaponBoss>(game.getLevel());
