@@ -13,6 +13,7 @@ Ship(p_space, p_game, "ressources/ship.png")
     shield = 0;
     life = 3;
     game.setShipState(life, shield);
+    weapon = std::make_unique<Laser>();
 }
 
 void Player::actualiseState() {
@@ -57,6 +58,7 @@ void Player::crashReaction(SpaceElement& other) {
                 position = {100, 100};
             else {
                 destruct = true;
+                game.restartGameLevel();
                 game.endGame("ressources/end_lose.png");
             }
             life -= 1;

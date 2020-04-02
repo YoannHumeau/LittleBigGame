@@ -5,7 +5,7 @@
 Boss::Boss(Game &p_game, Space &p_space, float x, float y):
 Ennemy(p_game, p_space, x, y, "ressources/ennemy_boss.png")
 {
-    life = 3;
+    life = 15;
     eType = EnnemyType::BOSS;
     ACCELERATION = 300.f;
     weapon = std::make_unique<WeaponBoss>(game.getLevel());
@@ -43,9 +43,14 @@ void Boss::crashReaction(SpaceElement& other) {
             space.add(std::make_unique<Explosion>(position));
             destruct = true;
             game.addPoints(sprite.getScale().x * 100);
-            if (game.getLevel() < 3)
+            if (game.getLevel() < 3) {
                 game.nextLevel();
-            game.endGame("ressources/end_level.png");
+                game.endGame("ressources/end_level.png");
+            }
+            else {
+                game.restartGameLevel();
+                game.endGame("ressources/end_win.png");
+            }
         }
     }
 }

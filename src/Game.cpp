@@ -86,10 +86,12 @@ void Game::endGame(std::string_view path)
 {
     running = false;
     space.purge();
-    // music.stop();
+    music.stop();
     setupMusic("ressources/swtheme.wav");
     homeSprite.setTexture(ResourceManager<sf::Texture>::getResource(path.data()));
     recordBestScoreInFile();
+    if (level == 4)
+        restartGameLevel();
 }
 
 void Game::display(sf::RenderWindow& window) const
@@ -122,7 +124,7 @@ void Game::initException(std::exception const& exception)
 void Game::setupMusic(std::string_view path, int volume, bool loop)
 {
     music.openFromFile(path.data());
-    // music.play();
+    music.play();
     music.setVolume(volume);
     music.setLoop(loop);
 }
@@ -245,6 +247,11 @@ void Game::setPlayerPosition(Coordinate &p_coord)
 void Game::nextLevel(void)
 {
     level += 1;
+}
+
+void Game::restartGameLevel(void)
+{
+    level = 1;
 }
 
 int Game::getLevel(void) const
