@@ -42,7 +42,7 @@ void Boss::crashReaction(SpaceElement& other) {
         }else{
             space.add(std::make_unique<Explosion>(position));
             destruct = true;
-            game.addPoints(sprite.getScale().x * 100);
+            game.addPoints(sprite.getScale().x * 150);
             if (game.getLevel() < 3) {
                 game.nextLevel();
                 game.endGame("ressources/end_level.png");

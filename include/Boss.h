@@ -11,7 +11,7 @@ class Boss: public Ennemy
         virtual void crashReaction(SpaceElement& other) override;
     private:
         float cpt{1};
-        float amplitude{4};
+        float amplitude{8};
         float frequency{0.5};
 };
 
