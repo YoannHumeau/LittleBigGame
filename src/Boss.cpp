@@ -14,20 +14,20 @@ Ennemy(p_game, p_space, x, y, "ressources/ennemy_boss_1.png")
 
 void Boss::update(float time) {
     bool bossFullInScreen = isBossFullInScreen();
-    
+   
     if (!destruct) {
         if (!bossFullInScreen) {
             speed += {-ACCELERATION * time, 0.f}; 
             if (type != ElementType:: BULLET) {
                 speed -= speed * COEF_FROTTEMENTS * time;
             }
+        } else if (speed.x == 0) {
+            if ( (position.y > 452 && direction == 1) || (position.y < 365 && direction == -1) )
+                direction *= -1;
+            speed += {0.f, direction * ACCELERATION * time};
+            speed -= speed * COEF_FROTTEMENTS * time;
         } else {
             speed.x = 0;
-
-            cpt++;
-            float result = amplitude * cos(cpt * M_PI * frequency * time);
-            speed += {0, result};
-            speed -= speed * COEF_FROTTEMENTS * time;
         }
 
         if (speed.x == 0)
@@ -39,7 +39,7 @@ void Boss::crashReaction(SpaceElement& other) {
     if (other.type == ElementType::BULLET || other.type == ElementType::PLAYER) {
         if (life > 0) {
             life -= 1;
-        } else 
+        } else {
             space.add(std::make_unique<Explosion>(position));
             destruct = true;
             game.addPoints(sprite.getScale().x * 150);
