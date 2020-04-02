@@ -13,7 +13,6 @@ Ship(p_space, p_game, "ressources/ship.png")
     shield = 0;
     life = 3;
     game.setShipState(life, shield);
-    weapon = std::make_unique<Laser>();
 }
 
 void Player::actualiseState() {
