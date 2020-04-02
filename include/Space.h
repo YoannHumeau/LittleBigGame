@@ -11,7 +11,6 @@ class Space
         Space();
 
         void add(std::unique_ptr<SpaceElement> element);
-        void addBonuses(int nbBonuses, float xpos, float ypos);
 
         void actualized();
         void manageCrash();

@@ -3,8 +3,8 @@
 #include "DoublePistol.h"
 #include "Laser.h"
 
-BonusWeapon::BonusWeapon(Space &p_space, float x, float y):
-Bonus(p_space, x, y, "ressources/bonus_weapon.png")
+BonusWeapon::BonusWeapon(float x, float y):
+Bonus(x, y, "ressources/bonus_weapon.png")
 {
     bType = BonusType::BONUS_WEAPON;
     ACCELERATION = 200.f;

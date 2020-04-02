@@ -5,8 +5,7 @@
 #include "Laser.h"
 
 Player::Player(Game& p_game, Space& p_space):
-Ship(p_space, "ressources/ship.png"),
-game{p_game}
+Ship(p_space, p_game, "ressources/ship.png")
 {
     position.x = 1024/6.f;
     position.y = 768/2.f;

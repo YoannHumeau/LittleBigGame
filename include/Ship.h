@@ -14,12 +14,13 @@
 class Ship : public PhysicalElement
 {
     public:
-        explicit Ship(Space& p_space, std::string_view path = "ressources/ship.png");
+        explicit Ship(Space& p_space, Game& p_game, std::string_view path = "ressources/ship.png");
 
         int life{1};
 
         virtual void crashReaction(SpaceElement& other) override;
 
+        Game& game;
         std::unique_ptr<Weapon> weapon;
     protected:
         float ACCELERATION;

@@ -2,8 +2,9 @@
 #define BONUSFACTORY_H
 
 class Bonus;
+// class SpaceElement;
 
-#include "Space.h"
+#include "SpaceElement.h"
 
 class BonusFactory
 {
@@ -17,7 +18,7 @@ class BonusFactory
 
     public:
         static BonusFactory& GetInstance(void);
-        std::unique_ptr<SpaceElement> Create(Space &space, float x, float y, int bonusType);
+        std::unique_ptr<SpaceElement> Create(float x, float y, int bonusType);
 };
 
 #endif

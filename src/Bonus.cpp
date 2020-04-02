@@ -1,7 +1,7 @@
 #include "Bonus.h"
 
-Bonus::Bonus(Space& p_space, float x, float y, std::string_view path):
-Ship(p_space, path)
+Bonus::Bonus(float x, float y, std::string_view path):
+PhysicalElement(path)
 {
     position = Coordinate{x, y};
     type = ElementType::BONUS;

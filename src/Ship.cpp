@@ -3,8 +3,9 @@
 
 #include <iostream>
 
-Ship::Ship(Space& p_space, std::string_view path):
+Ship::Ship(Space& p_space, Game& p_game, std::string_view path):
 PhysicalElement(path),
+game{p_game},
 space{p_space} {
     weapon = std::make_unique<Pistol>();
 }
