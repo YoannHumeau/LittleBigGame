@@ -11,6 +11,11 @@ class Boss: public Ennemy
         virtual void crashReaction(SpaceElement& other) override;
     private:
         int direction = 1;
+        sf::Color bossColor[3] = {
+            sf::Color::Blue,
+            sf::Color::Red,
+            sf::Color::Green
+        };
 };
 
 #endif

@@ -3,9 +3,9 @@
 #include <math.h>
 
 Boss::Boss(Game &p_game, Space &p_space, float x, float y):
-Ennemy(p_game, p_space, x, y, "ressources/ennemy_boss_1.png")
+Ennemy(p_game, p_space, x, y, "ressources/ennemy_boss.png")
 {
-    changeSprite("ressources/ennemy_boss_"+std::to_string(game.getLevel())+".png");
+    sprite.setColor(bossColor[game.getLevel()-1]);
     life = 20 * game.getLevel();
     eType = EnnemyType::BOSS;
     ACCELERATION = 300.f;
