@@ -8,7 +8,7 @@ Ennemy(p_game, p_space, x, y, "ressources/ennemy_boss.png")
     life = 3;
     eType = EnnemyType::BOSS;
     ACCELERATION = 300.f;
-    weapon = std::make_unique<WeaponBoss>();
+    weapon = std::make_unique<WeaponBoss>(game.getLevel());
 }
 
 void Boss::update(float time) {

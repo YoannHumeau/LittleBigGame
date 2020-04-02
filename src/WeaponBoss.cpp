@@ -1,7 +1,9 @@
 #include "WeaponBoss.h"
 #include "BulletBoss.h"
 
-WeaponBoss::WeaponBoss(){}
+WeaponBoss::WeaponBoss(int bossLevel){
+    nbWeapons = bossLevel;
+}
 WeaponBoss::~WeaponBoss(){}
 
 void WeaponBoss::attack(Space& space, Coordinate position) {
